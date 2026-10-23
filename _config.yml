@@ -1,0 +1,25 @@
+title: mzmzkgu
+description: 직접 만들어 쓰는 투자·사진 도구 모음과 사용 가이드, 투자 공부 기록
+lang: ko
+url: "https://mzmzkgu.github.io"
+baseurl: ""
+
+# 글 주소: /posts/2026/10/23/제목/
+permalink: /posts/:year/:month/:day/:title/
+
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Jekyll이 건드리지 않고 그대로 복사하는 앱 폴더들은
+# front matter(---)가 없는 파일이면 자동으로 원본 그대로 서비스됨.
+include:
+  - ads.txt
+
+exclude:
+  - README.md
+  - index_old.html
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
