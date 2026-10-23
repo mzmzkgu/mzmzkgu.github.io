@@ -114,7 +114,17 @@ article h1 { font-size: 24px; line-height: 1.5; margin-bottom: 8px; }
   border-radius: 4px; margin: 38px 0 14px; font-size: 19px;
 }
 .post-body h3 { margin: 26px 0 6px; padding-left: 10px; border-left: 3px solid var(--text); line-height: 1.4; }
-.post-body img { display: block; max-width: 100%; height: auto; margin: 16px auto; border-radius: 8px; }
+.post-body img { display: block; max-width: 100%; height: auto; margin: 16px auto; border-radius: 8px; border: 1px solid var(--line); }
+.post-body img.narrow { max-width: 340px; }
+.post-body img.mid { max-width: 560px; }
+/* 스크린샷 묶음: PC에선 나란히, 모바일에선 옆으로 넘겨 보기 */
+.post-body .shots { display: flex; gap: 10px; margin: 16px 0 4px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.post-body .shots p { flex: 0 0 76%; margin: 0; scroll-snap-align: center; }
+.post-body .shots img { margin: 0; width: 100%; }
+@media (min-width: 561px) {
+  .post-body .shots { overflow: visible; }
+  .post-body .shots p { flex: 1 1 0; min-width: 0; }
+}
 .post-body em { color: var(--muted); font-size: 13.5px; font-style: normal; display: block; text-align: center; margin: -8px 0 16px; }
 .post-body strong { font-weight: 700; }
 .post-body .red { color: #e5372b; font-weight: 700; }
