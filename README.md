@@ -39,7 +39,7 @@ jekyll serve
 ## 직접 채워야 할 곳
 - `contact.md` — 이메일 주소를 실제 주소로 교체
 - `about.md` — 본인 소개 2~3줄 추가
-- `index.html`, `_posts/2026-10-23-site-guide.md` — 앱 설명을 실제 기능에 맞게 수정
+- `index.html` — 앱 카드 설명을 실제 기능에 맞게 수정
 
 ## 애드센스
 - 모든 페이지 `<head>`에 `google-adsense-account` 메타태그와 AdSense 스크립트가 들어 있음 (`_layouts/default.html`)
