@@ -4,7 +4,7 @@
 <ul class="post-list">
   {% for post in list %}
   <li>
-    <span class="date mono">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
     <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
     {% for t in post.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
     <p class="excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p>
