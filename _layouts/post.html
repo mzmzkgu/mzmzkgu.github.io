@@ -2,11 +2,14 @@
 layout: default
 ---
 <article>
+  <div class="crumb">
+    <a href="{{ '/' | relative_url }}">홈</a>
+    {% for s in site.data.sections %}{% if page.categories contains s.key %}<span>&rsaquo;</span><a href="{{ s.url | relative_url }}">{{ s.title }}</a>{% endif %}{% endfor %}
+  </div>
   <h1>{{ page.title }}</h1>
   <div class="post-meta">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
-    {% for s in site.data.sections %}{% if page.categories contains s.key %} · <a href="{{ s.url | relative_url }}">{{ s.title }}</a>{% endif %}{% endfor %}
-    {% if page.tags %} ·
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+    {% if page.tags %}<span class="sep">|</span>
       {% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
     {% endif %}
   </div>

@@ -39,7 +39,13 @@
 
   <main>
     <div class="wrap">
+      {% if page.url == '/' %}
       {{ content }}
+      {% else %}
+      <div class="paper">
+        {{ content }}
+      </div>
+      {% endif %}
     </div>
   </main>
 
