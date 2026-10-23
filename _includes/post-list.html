@@ -1,0 +1,15 @@
+{% comment %}include.category 가 있으면 그 분야 글만, 없으면 전체 글을 보여줌{% endcomment %}
+{% assign list = site.posts %}
+{% if include.category %}{% assign list = site.categories[include.category] %}{% endif %}
+<ul class="post-list">
+  {% for post in list %}
+  <li>
+    <span class="date mono">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {% for t in post.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
+    <p class="excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p>
+  </li>
+  {% else %}
+  <li><p class="excerpt">아직 올라온 글이 없습니다.</p></li>
+  {% endfor %}
+</ul>

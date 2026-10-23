@@ -42,4 +42,7 @@ description: 공모주 일정·수익 관리와 무한매수법 기록 도구를
   <li><p class="excerpt">아직 올라온 글이 없습니다.</p></li>
   {% endfor %}
 </ul>
-<p><a href="{{ '/posts/' | relative_url }}">전체 글 보기 →</a></p>
+<p>
+  {% for s in site.data.sections %}<a href="{{ s.url | relative_url }}">{{ s.title }} 글 →</a>&nbsp;&nbsp;{% endfor %}
+  <a href="{{ '/posts/' | relative_url }}">전체 글 보기 →</a>
+</p>

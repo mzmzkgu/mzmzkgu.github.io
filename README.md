@@ -5,7 +5,9 @@
 
 ## 구성
 - `index.html` — 홈 (사이트 소개 + 앱 카드 2개 + 최신 글 5개)
-- `posts.html` — 글 목록, `_posts/` — 글 (`.md`만 추가하면 자동 반영)
+- `ipo.html`(`/ipo/`), `infinity.html`(`/infinity/`) — 분야별 글 목록, `posts.html` — 전체 글 목록
+- `_data/sections.yml` — 상단 메뉴와 분야 정의 (분야를 추가하려면 여기 한 줄 + 목록 페이지 하나)
+- `_posts/` — 글 (`.md`만 추가하면 자동 반영)
 - `about.md` / `contact.md` / `privacy.md` — 소개 / 문의 / 개인정보 처리방침
 - `_layouts/` — 공통 레이아웃(`default`, `post`), `assets/style.css` — 스타일
 - `ads.txt` — Google AdSense 인증 파일 (루트에 있어야 함, 수정 금지)
@@ -18,6 +20,7 @@
 ```markdown
 ---
 layout: post
+categories: [ipo]        # ipo(공모주 수익관리) 또는 infinity(무한매수법), 둘 다 가능
 title: "글 제목"
 description: 목록에 보일 한두 줄 요약
 tags: [투자, IPO]
