@@ -61,5 +61,11 @@
       <div>© {{ 'now' | date: '%Y' }} mzmzkgu. 이 사이트의 투자 관련 내용은 정보 제공 목적이며 투자 권유가 아닙니다.</div>
     </div>
   </footer>
+  <script>
+    // 글 속 이미지를 누르면 원본 크기로 새 탭에서 열기 (모바일에서 차트 글씨 확대용)
+    document.querySelectorAll('.post-body img').forEach(function (img) {
+      img.addEventListener('click', function () { window.open(img.src, '_blank'); });
+    });
+  </script>
 </body>
 </html>
