@@ -5,6 +5,7 @@ layout: default
   <h1>{{ page.title }}</h1>
   <div class="post-meta">
     <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+    {% for s in site.data.sections %}{% if page.categories contains s.key %} · <a href="{{ s.url | relative_url }}">{{ s.title }}</a>{% endif %}{% endfor %}
     {% if page.tags %} ·
       {% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
     {% endif %}
@@ -21,5 +22,8 @@ layout: default
   </div>
   {% endif %}
 
-  <p><a href="{{ '/posts/' | relative_url }}">← 글 목록으로</a></p>
+  <p>
+    {% for s in site.data.sections %}{% if page.categories contains s.key %}<a href="{{ s.url | relative_url }}">← {{ s.title }} 글 목록</a>&nbsp;&nbsp;{% endif %}{% endfor %}
+    <a href="{{ '/posts/' | relative_url }}">전체 글 보기</a>
+  </p>
 </article>

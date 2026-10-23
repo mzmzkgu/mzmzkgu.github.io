@@ -1,0 +1,7 @@
+# 상단 메뉴와 분야별 글 페이지 설정. 글 front matter 의 categories 값이 key 와 같으면 해당 분야에 모임.
+- key: ipo
+  title: 공모주 수익관리
+  url: /ipo/
+- key: infinity
+  title: 무한매수법
+  url: /infinity/

@@ -1,21 +1,12 @@
 ---
 layout: default
-title: 글
+title: 전체 글
 permalink: /posts/
-description: 도구 사용법, 개발 기록, 투자 공부 기록을 모아둔 글 목록입니다.
+description: 공모주 수익관리와 무한매수법 글을 한곳에 모아둔 전체 글 목록입니다.
 ---
-<h1>글</h1>
-<p class="lead">도구 사용법과 개발 기록, 투자 공부 내용을 정리해서 올립니다.</p>
-
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <span class="date mono">{{ post.date | date: "%Y-%m-%d" }}</span>
-    <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    {% for t in post.tags %}<span class="tag">#{{ t }}</span>{% endfor %}
-    <p class="excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p>
-  </li>
-  {% else %}
-  <li><p class="excerpt">아직 올라온 글이 없습니다.</p></li>
-  {% endfor %}
-</ul>
+<h1>전체 글</h1>
+<p class="lead">
+  {% for s in site.data.sections %}<a href="{{ s.url | relative_url }}">{{ s.title }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+  분야의 글을 모두 모아 보여줍니다.
+</p>
+{% include post-list.html %}

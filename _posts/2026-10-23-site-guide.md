@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: [ipo, infinity]
 title: "공모주·무한매수 기록 도구 사용 가이드"
 description: 사이트에 올려둔 두 가지 투자 기록 도구가 각각 무엇을 해주는지, 데이터는 어디에 저장되는지, 어떻게 시작하면 되는지 정리했습니다.
 tags: [가이드, 도구, 투자]
