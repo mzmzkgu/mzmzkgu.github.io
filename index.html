@@ -1,48 +1,40 @@
 ---
 layout: default
 title: 홈
-description: 공모주 일정·수익 관리와 무한매수법 기록 도구를 직접 만들어 쓰고, 그 사용법과 투자 공부 기록을 공유하는 투자 기록 사이트입니다.
+description: 소액 재테크를 관리하기 위한 공모주 수익관리, 무한매수법 관리 도구와 투자방법·관리방법 글을 모아둔 사이트입니다.
 ---
-<p class="prompt mono">whoami</p>
-<h1>mzmzkgu</h1>
-<p class="lead">
-  공모주와 무한매수법 같은 투자 방식을 직접 해보며 기록하는 사이트입니다.
-  투자 기록을 편하게 관리하려고 직접 만든 도구 두 가지를 공개하고,
-  그 사용법과 투자 공부 기록, 시행착오를 글로 남깁니다.
-</p>
+<h1 class="sr-only">mzmzkgu - 소액 재테크 관리 도구</h1>
 
-<h2 class="prompt mono" style="border:none;margin-bottom:0">ls ~/projects</h2>
-<div class="apps">
-  <a class="app-card" href="{{ '/ipotracker/' | relative_url }}">
-    <div class="icon">📈</div>
-    <div class="name">공모주 관리</div>
-    <div class="path mono">ipotracker</div>
-    <div class="desc">청약·환불·상장 일정과 수익을 한곳에서 기록하고 확인하는 도구</div>
-  </a>
-  <a class="app-card" href="{{ '/infinityBuy/' | relative_url }}">
-    <div class="icon">♾️</div>
-    <div class="name">무한매수 관리</div>
-    <div class="path mono">infinityBuy</div>
-    <div class="desc">무한매수법의 회차별 매수·매도 기록과 평단을 관리하는 도구</div>
-  </a>
-</div>
-<p style="font-size:14px;color:var(--muted)">
-  두 도구 모두 로그인 없이 쓸 수 있고, 입력한 데이터는 서버로 보내지 않고 내 브라우저에서만 처리됩니다.
-</p>
+<section class="home-section">
+  <h2 class="section-title">소개</h2>
+  <div class="intro-card">
+    <p>소액 재테크를 관리하기 위한 웹사이트입니다.</p>
+    <p>원래는 제가 편하게 쓰려고 만든 건데, 공유해봐도 좋을 것 같아 올려봅니다.</p>
+    <p>투자방법, 관리방법 등을 글로 남겨놨으니 참고해서 사용하세요! 성투!! 🙌</p>
+  </div>
+</section>
 
-<h2 class="prompt mono" style="border:none;margin-bottom:0">tail -n 5 posts.log</h2>
-<ul class="post-list">
-  {% for post in site.posts limit:5 %}
-  <li>
-    <span class="date mono">{{ post.date | date: "%Y-%m-%d" }}</span>
-    <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <p class="excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 110 }}</p>
-  </li>
-  {% else %}
-  <li><p class="excerpt">아직 올라온 글이 없습니다.</p></li>
-  {% endfor %}
-</ul>
-<p>
-  {% for s in site.data.sections %}<a href="{{ s.url | relative_url }}">{{ s.title }} 글 →</a>&nbsp;&nbsp;{% endfor %}
-  <a href="{{ '/posts/' | relative_url }}">전체 글 보기 →</a>
-</p>
+<section class="home-section">
+  <h2 class="section-title">컨텐츠</h2>
+  <div class="apps">
+    <div class="app-card">
+      <div class="icon">📈</div>
+      <div class="name">공모주 수익관리</div>
+      <div class="desc">청약·환불·상장 일정과 수익을 한곳에서 기록하고 확인하는 도구</div>
+      <div class="actions">
+        <a class="btn" href="{{ '/ipotracker/' | relative_url }}">도구 열기</a>
+        <a class="more" href="{{ '/ipo/' | relative_url }}">관련 글 보기 →</a>
+      </div>
+    </div>
+    <div class="app-card">
+      <div class="icon">♾️</div>
+      <div class="name">무한매수법</div>
+      <div class="desc">무한매수법의 회차별 매수·매도 기록과 평단을 관리하는 도구</div>
+      <div class="actions">
+        <a class="btn" href="{{ '/infinityBuy/' | relative_url }}">도구 열기</a>
+        <a class="more" href="{{ '/infinity/' | relative_url }}">관련 글 보기 →</a>
+      </div>
+    </div>
+  </div>
+  <p class="home-note">두 도구 모두 로그인 없이 쓸 수 있고, 입력한 데이터는 서버로 보내지 않고 내 브라우저에서만 처리됩니다.</p>
+</section>
