@@ -1,16 +1,16 @@
 # mzmzkgu.github.io
 
-직접 만들어 쓰는 투자·사진 도구 모음과 사용 가이드, 투자 공부 기록을 올리는 Jekyll 사이트 (GitHub Pages).
+공모주·무한매수 투자 기록 도구와 사용 가이드, 투자 공부 기록을 올리는 투자 전용 Jekyll 사이트 (GitHub Pages).
 어두운 배경 + 주황 포인트의 터미널 느낌 디자인.
 
 ## 구성
-- `index.html` — 홈 (사이트 소개 + 앱 카드 4개 + 최신 글 5개)
+- `index.html` — 홈 (사이트 소개 + 앱 카드 2개 + 최신 글 5개)
 - `posts.html` — 글 목록, `_posts/` — 글 (`.md`만 추가하면 자동 반영)
 - `about.md` / `contact.md` / `privacy.md` — 소개 / 문의 / 개인정보 처리방침
 - `_layouts/` — 공통 레이아웃(`default`, `post`), `assets/style.css` — 스타일
 - `ads.txt` — Google AdSense 인증 파일 (루트에 있어야 함, 수정 금지)
 - `index_old.html` — 이전 "프로젝트 데스크톱" 홈 백업 (사이트에는 배포되지 않음)
-- 앱들(`/ipotracker`, `/imgresize`, `/bgremove`, `/infinityBuy`)은 각각 별도 저장소의 프로젝트 페이지
+- 앱들(`/ipotracker`, `/infinityBuy`)은 각각 별도 저장소의 프로젝트 페이지
 
 ## 글 올리는 법
 `_posts/YYYY-MM-DD-영문제목.md` 파일을 추가하면 끝.
