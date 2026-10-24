@@ -44,12 +44,19 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===== 헤더 ===== */
-.site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
+.site-header {
+  /* 위: 글자가 잘 보이도록 왼쪽을 흐리게 덮는 막, 아래: 직접 그린 주식 차트 배경 그림 */
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.86) 42%, rgba(255,255,255,.28) 100%),
+    url("/assets/images/header-bg.svg") right center / auto 100% no-repeat,
+    var(--paper);
+  border-bottom: 1px solid var(--line);
+}
 .site-header .wrap { padding-top: 16px; padding-bottom: 0; }
 .brand { display: inline-block; font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -.02em; }
 .brand:hover { text-decoration: none; color: var(--accent-ink); }
 .nav { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 6px; font-size: 15px; font-weight: 700; }
-.nav a { color: var(--muted); padding: 8px 0 9px; border-bottom: 3px solid transparent; white-space: nowrap; }
+.nav a { color: #6b7280; padding: 8px 0 9px; border-bottom: 3px solid transparent; white-space: nowrap; }
 .nav a:hover { color: var(--text); text-decoration: none; }
 .nav a.active { color: var(--text); border-bottom-color: var(--text); }
 
@@ -180,6 +187,10 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .site-footer a:hover { color: var(--accent-ink); }
 
 @media (max-width: 560px) {
+  .site-header { background:
+    linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.88) 48%, rgba(255,255,255,.2) 100%),
+    url("/assets/images/header-bg.svg") right center / auto 100% no-repeat,
+    var(--paper); }
   .wrap { padding: 0 12px; }
   .paper { padding: 22px 18px 24px; }
   .nav { gap: 0 14px; font-size: 14px; }
