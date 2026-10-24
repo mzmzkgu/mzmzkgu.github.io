@@ -29,6 +29,11 @@ body {
   overflow-wrap: break-word;
 }
 
+/* 줄바꿈 다듬기: 마지막 줄에 한두 글자만 남는 것을 줄이고, 제목·짧은 설명은 줄 길이를 고르게 */
+p, li, blockquote, td, .excerpt, .home-note, .notice, .site-footer div { text-wrap: pretty; }
+h1, h2, h3, .lead, .section-title, .intro-card p, .app-card .name, .app-card .desc,
+.post-list .title, .post-body em, .crumb { text-wrap: balance; }
+
 a { color: var(--accent-ink); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
