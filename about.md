@@ -2,7 +2,7 @@
 layout: default
 title: 소개
 permalink: /about/
-description: mzmzkgu 사이트와 운영자를 소개합니다.
+description: 소소한 재테크 작업실과 운영자를 소개합니다.
 ---
 # 소개
 

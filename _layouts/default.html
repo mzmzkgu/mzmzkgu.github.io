@@ -25,7 +25,7 @@
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="{{ '/' | relative_url }}">mzmzkgu</a>
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="nav">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>홈</a>
         {% for s in site.data.sections %}
@@ -58,7 +58,7 @@
         <a href="{{ '/privacy/' | relative_url }}">개인정보 처리방침</a>
         <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
       </div>
-      <div>© {{ 'now' | date: '%Y' }} mzmzkgu. 이 사이트의 투자 관련 내용은 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+      <div>© {{ 'now' | date: '%Y' }} {{ site.title }}. 이 사이트의 투자 관련 내용은 정보 제공 목적이며 투자 권유가 아닙니다.</div>
     </div>
   </footer>
   <script>

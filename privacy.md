@@ -2,13 +2,13 @@
 layout: default
 title: 개인정보 처리방침
 permalink: /privacy/
-description: mzmzkgu.github.io의 개인정보, 쿠키, 광고(Google AdSense) 관련 처리방침입니다.
+description: 소소한 재테크 작업실(mzmzkgu.github.io)의 개인정보, 쿠키, 광고(Google AdSense) 관련 처리방침입니다.
 ---
 # 개인정보 처리방침
 
 최종 수정일: {{ site.time | date: "%Y년 %m월 %d일" }}
 
-mzmzkgu.github.io(이하 "사이트")는 방문자의 개인정보를 소중하게 다룹니다.
+소소한 재테크 작업실(mzmzkgu.github.io, 이하 "사이트")는 방문자의 개인정보를 소중하게 다룹니다.
 이 문서는 사이트가 어떤 정보를 다루는지 설명합니다.
 
 ## 1. 수집하는 개인정보
