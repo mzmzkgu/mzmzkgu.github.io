@@ -44,14 +44,21 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===== 헤더 ===== */
-.site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
-.site-header .wrap { padding-top: 16px; padding-bottom: 0; }
-.brand { display: inline-block; font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -.02em; }
-.brand:hover { text-decoration: none; color: var(--accent-ink); }
+.site-header {
+  /* 위: 글자가 잘 보이도록 왼쪽을 어둡게 덮는 막, 아래: 직접 그린 뉴욕 야경 + 차트 배경 그림 */
+  background:
+    linear-gradient(90deg, rgba(5,10,28,.88) 0%, rgba(5,10,28,.6) 45%, rgba(5,10,28,.08) 100%),
+    url("/assets/images/header-bg.svg") center bottom / cover no-repeat,
+    #0a1633;
+  border-bottom: 1px solid #0a1633;
+}
+.site-header .wrap { padding-top: 22px; padding-bottom: 4px; }
+.brand { display: inline-block; font-size: 20px; font-weight: 800; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.45); letter-spacing: -.02em; }
+.brand:hover { text-decoration: none; color: #d8f5e9; }
 .nav { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 6px; font-size: 15px; font-weight: 700; }
-.nav a { color: var(--muted); padding: 8px 0 9px; border-bottom: 3px solid transparent; white-space: nowrap; }
-.nav a:hover { color: var(--text); text-decoration: none; }
-.nav a.active { color: var(--text); border-bottom-color: var(--text); }
+.nav a { color: rgba(255,255,255,.72); text-shadow: 0 1px 5px rgba(0,0,0,.45); padding: 8px 0 9px; border-bottom: 3px solid transparent; white-space: nowrap; }
+.nav a:hover { color: #fff; text-decoration: none; }
+.nav a.active { color: #fff; border-bottom-color: #4be3b0; }
 
 /* ===== 본문 ===== */
 main { padding: 18px 0 56px; min-height: 60vh; }
@@ -180,6 +187,10 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .site-footer a:hover { color: var(--accent-ink); }
 
 @media (max-width: 560px) {
+  .site-header { background:
+    linear-gradient(90deg, rgba(5,10,28,.9) 0%, rgba(5,10,28,.7) 55%, rgba(5,10,28,.25) 100%),
+    url("/assets/images/header-bg.svg") center bottom / cover no-repeat,
+    #0a1633; }
   .wrap { padding: 0 12px; }
   .paper { padding: 22px 18px 24px; }
   .nav { gap: 0 14px; font-size: 14px; }
