@@ -85,8 +85,9 @@ p { margin: 0 0 14px; }
 
 .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .app-card { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 22px; display: flex; flex-direction: column; }
-.app-card .icon { font-size: 30px; line-height: 1; }
-.app-card .name { font-size: 16px; font-weight: 800; margin-top: 10px; }
+.app-card .head { display: flex; align-items: center; gap: 10px; }
+.app-card .icon { font-size: 24px; line-height: 1; flex: none; }
+.app-card .name { font-size: 16px; font-weight: 800; }
 .app-card .desc { font-size: 13.5px; color: var(--sub); margin: 4px 0 16px; line-height: 1.7; flex: 1; }
 .app-card .actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .btn {
