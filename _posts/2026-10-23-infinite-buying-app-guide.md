@@ -8,6 +8,16 @@ tags: [투자, 무한매수]
 
 무한매수법은 규칙이 단순한 대신 **기록을 안 하면 지금 몇 회차인지, 평단이 얼마인지 알 수 없습니다.** 처음에는 구글 스프레드시트로 기록장을 만들어 썼고, 2026년 4월에 같은 목적의 웹앱을 만들었습니다. 이 글은 그 앱의 사용 방법입니다. 규칙 자체가 궁금하다면 [무한매수법 투자 방법]({{ site.baseurl }}{% post_url 2026-10-23-infinite-buying-how-to %})을 먼저 읽어보세요.
 
+<div class="tldr" markdown="1">
+
+## 3줄 요약
+
+1. 설치 없이 웹에서 바로 기록
+2. 저녁엔 가격 확인, 아침엔 입력
+3. 기록은 브라우저에만, 백업 필수
+
+</div>
+
 > 접속 주소: [https://mzmzkgu.github.io/infinityBuy/](https://mzmzkgu.github.io/infinityBuy/)
 
 ## 이런 앱입니다

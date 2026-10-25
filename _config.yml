@@ -20,6 +20,8 @@ include:
 
 exclude:
   - README.md
+  - CLAUDE.md
+  - tools
   - index_old.html
   - Gemfile
   - Gemfile.lock

@@ -186,6 +186,23 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .cal-legend .ev { display: inline-flex; margin: 0 6px 0 0; }
 .cal-legend .ev b { word-break: keep-all; }
 
+/* ===== 3줄 요약 상자 (글 도입 문단 바로 아래) ===== */
+.post-body .tldr { background: #f1f8f5; border: 1px solid #cfe9dd; border-radius: 12px; padding: 12px 14px 8px; margin: 20px 0 22px; }
+.post-body .tldr h2 {
+  display: block; width: auto; background: none; padding: 0; border-radius: 0;
+  margin: 0 0 8px; font-size: 15.5px; color: var(--accent-ink); letter-spacing: -.01em;
+}
+.post-body .tldr ol { list-style: none; margin: 0; padding: 0; counter-reset: tl; }
+.post-body .tldr li {
+  counter-increment: tl; display: flex; align-items: baseline; gap: 8px;
+  margin: 0 0 6px; font-size: 14.5px; line-height: 1.6; font-weight: 600; color: var(--text);
+}
+.post-body .tldr li::before {
+  content: counter(tl); flex: none; width: 19px; height: 19px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-size: 11.5px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; transform: translateY(-1px);
+}
+
 /* ===== 도구 안내(주석처럼 작은 회색 글씨)와 도구 링크 풍선 박스 ===== */
 .tool-preview > p { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 0 0 10px; }
 .tool-preview > p strong { font-weight: 600; color: #7b838d; }
