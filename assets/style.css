@@ -130,6 +130,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .post-body img { display: block; max-width: 100%; height: auto; margin: 16px auto; border-radius: 8px; border: 1px solid var(--line); }
 .post-body img.narrow { max-width: min(340px, 100%); }
 .post-body img.mid { max-width: min(560px, 100%); }
+.post-body img.phone { max-width: min(400px, 100%); }
 .post-body img { cursor: zoom-in; }
 /* 스크린샷 묶음: PC에선 나란히, 모바일에선 옆으로 넘겨 보기 */
 .post-body .shots { display: flex; gap: 10px; margin: 16px 0 4px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
