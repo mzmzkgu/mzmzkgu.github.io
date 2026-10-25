@@ -185,7 +185,19 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .cal-legend .ev { display: inline-flex; margin: 0 6px 0 0; }
 .cal-legend .ev b { word-break: keep-all; }
 
-/* ===== 푸터 =====
+/* ===== 도구 안내(주석처럼 작은 회색 글씨)와 도구 링크 풍선 박스 ===== */
+.tool-preview > p { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 0 0 10px; }
+.tool-preview > p strong { font-weight: 600; color: #7b838d; }
+.tool-link {
+  display: inline-block; white-space: nowrap; margin: 2px 2px;
+  padding: 1px 13px; border-radius: 999px; line-height: 1.7;
+  background: var(--accent-soft); border: 1px solid #b4e0cf;
+  color: var(--accent-ink); font-weight: 800; text-decoration: none;
+  box-shadow: 0 1px 3px rgba(15, 138, 106, .18);
+}
+.tool-link:hover { background: #d4efe3; color: var(--accent-ink); text-decoration: none; }
+
+/* ===== 푸터 ===== */
 .site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12.5px; line-height: 1.8; }
 .site-footer .links { display: flex; gap: 4px 16px; flex-wrap: wrap; margin-bottom: 6px; }
 .site-footer a { color: var(--sub); }
