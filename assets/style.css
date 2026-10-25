@@ -139,6 +139,10 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
   .post-body .shots { overflow: visible; }
   .post-body .shots p { flex: 1 1 0; min-width: 0; }
 }
+@media (min-width: 561px) {
+  .post-body .shots.grid2 { flex-wrap: wrap; }
+  .post-body .shots.grid2 p { flex: 0 0 calc(50% - 5px); }
+}
 .post-body em { color: var(--muted); font-size: 13px; font-style: normal; display: block; text-align: center; margin: -8px 0 16px; }
 .post-body strong { font-weight: 700; }
 .post-body .red { color: #e5372b; font-weight: 700; }
