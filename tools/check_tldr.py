@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """모든 글(_posts/*.md)이 '3줄 요약' 규칙을 지키는지 검사한다.
+공부요약(categories: [study]) 글은 '출처' 형식도 함께 검사한다.
 
 규칙
   1. 도입 문단 바로 다음에 <div class="tldr" markdown="1"> 블록이 있다.
@@ -13,6 +14,7 @@
 import glob, re, sys
 
 LIMIT = 15.5  # 360px 폰에서 한 줄에 들어가는 폭(실측으로 보정한 값)
+SRC_LIMIT = 20.6  # 출처 제목(14px)이 360px 폰에서 한 줄에 들어가는 폭(실측으로 보정한 값)
 
 
 def units(text):
@@ -33,9 +35,32 @@ def units(text):
     return u
 
 
+def check_source(s):
+    """공부요약 글 맨 아래 출처 블록 형식:
+
+        ### 출처 : 「원문 제목」
+        {: .src}
+
+        원문 : [원문 블로그 이름](링크)<br>
+        내 블로그 : [멍멍짱구 작업실](링크)
+    """
+    errs = []
+    m = re.search(r'^### 출처 : 「(.+?)」\n\{: \.src\}\n\n원문 : (.+?)(?:<br>)?\n내 블로그 : (.+?)\s*$', s, re.M)
+    if not m:
+        return ['공부요약 글 맨 아래에 "### 출처 : 「원문 제목」" + "{: .src}" + "원문 :" + "내 블로그 :" 형식의 출처 블록이 없습니다']
+    w = units('출처 : 「' + m.group(1) + '」')
+    if w > SRC_LIMIT:
+        errs.append(f'출처 제목이 폰(360px)에서 두 줄로 나뉠 수 있습니다 ({w:.1f} > {SRC_LIMIT}): {m.group(1)}')
+    if s.rstrip().splitlines()[-1].startswith('내 블로그 :') is False:
+        errs.append('출처 블록이 글의 맨 마지막이 아닙니다')
+    return errs
+
+
 def check(path):
     errs = []
     s = open(path, encoding='utf-8').read()
+    if re.search(r'^categories:\s*\[study\]', s, re.M):
+        errs += check_source(s)
     m = re.match(r'---\n.*?\n---\n\s*(.*)', s, re.S)
     if not m:
         return ['front matter를 찾지 못했습니다']

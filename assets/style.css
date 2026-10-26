@@ -237,3 +237,6 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 @media (max-width: 380px) {
   .nav { gap: 0 9px; font-size: 13.5px; }
 }
+
+/* ===== 공부요약 출처 구분 탭 ===== */
+.post-body h3.src { font-size: 14px; letter-spacing: -.03em; }
