@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [infinity]
-title: "무한매수법 참고지표 :: Fear & Greed (공포탐욕지수)"
+title: "[무한매수] 무한매수법 참고지표 :: Fear & Greed (공포탐욕지수)"
 description: 무한매수법을 언제 시작할지 고민될 때 참고하는 CNN 공포탐욕지수(Fear & Greed) 보는 법과, Extreme Fear~Fear 구간에서 시작하면 좋은 이유를 실제 차트와 함께 정리했습니다.
 tags: [투자, 무한매수]
 ---
