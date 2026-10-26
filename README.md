@@ -9,7 +9,8 @@
 - `_data/sections.yml` — 상단 메뉴와 분야 정의 (분야를 추가하려면 여기 한 줄 + 목록 페이지 하나)
 - `_posts/` — 글 (`.md`만 추가하면 자동 반영)
 - `CLAUDE.md` — 글 작성 규칙(3줄 요약 등), `tools/check_tldr.py` — 3줄 요약 규칙 검사 (둘 다 사이트에는 배포되지 않음)
-- `about.md` / `contact.md` / `privacy.md` — 소개 / 문의 / 개인정보 처리방침
+- `contact.md` / `privacy.md` — 소개·문의(합쳐진 페이지) / 개인정보 처리방침 (`about.html`은 `/about/` → `/contact/` 이동용)
+- `market.html` — 마켓시그널 탭 (`/marketTraffic/signals.json`을 읽어 카드로 표시)
 - `_layouts/` — 공통 레이아웃(`default`, `post`), `assets/style.css` — 스타일
 - `ads.txt` — Google AdSense 인증 파일 (루트에 있어야 함, 수정 금지)
 - `index_old.html` — 이전 "프로젝트 데스크톱" 홈 백업 (사이트에는 배포되지 않음)
@@ -54,7 +55,7 @@ jekyll serve
 
 ## 직접 채워야 할 곳
 - `contact.md` — 이메일 주소를 실제 주소로 교체
-- `about.md` — 본인 소개 2~3줄 추가
+- `contact.md` — 본인 소개 2~3줄 추가
 - `index.html` — 앱 카드 설명을 실제 기능에 맞게 수정
 
 ## 애드센스

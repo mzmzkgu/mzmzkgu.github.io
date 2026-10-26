@@ -1,9 +1,12 @@
 # 상단 메뉴와 분야별 글 페이지 설정. 글 front matter 의 categories 값이 key 와 같으면 해당 분야에 모임.
+# nav: 상단 메뉴에 보일 짧은 이름 (없으면 title 을 씀)
 - key: ipo
   title: 공모주 수익관리
+  nav: 공모주
   url: /ipo/
 - key: infinity
   title: 무한매수법
+  nav: 무한매수
   url: /infinity/
 - key: study
   title: 공부요약

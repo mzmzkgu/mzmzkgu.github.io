@@ -35,9 +35,9 @@
       <nav class="nav">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>홈</a>
         {% for s in site.data.sections %}
-        <a href="{{ s.url | relative_url }}" {% if page.url == s.url or page.categories contains s.key %}class="active"{% endif %}>{{ s.title }}</a>
+        <a href="{{ s.url | relative_url }}" {% if page.url == s.url or page.categories contains s.key %}class="active"{% endif %}>{{ s.nav | default: s.title }}</a>
         {% endfor %}
-        <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>소개</a>
+        <a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>
         <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}class="active"{% endif %}>문의</a>
       </nav>
     </div>
@@ -45,7 +45,7 @@
 
   <main>
     <div class="wrap">
-      {% if page.url == '/' %}
+      {% if page.url == '/' or page.bare %}
       {{ content }}
       {% else %}
       <div class="paper">
@@ -59,7 +59,6 @@
     <div class="wrap">
       <div class="links">
         <a href="{{ '/posts/' | relative_url }}">전체 글</a>
-        <a href="{{ '/about/' | relative_url }}">사이트 소개</a>
         <a href="{{ '/contact/' | relative_url }}">문의</a>
         <a href="{{ '/privacy/' | relative_url }}">개인정보 처리방침</a>
         <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
