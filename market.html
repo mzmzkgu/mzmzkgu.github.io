@@ -15,7 +15,7 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
 </section>
 
 <div id="mkErr"></div>
-<div class="mk-grid" id="mkGrid"></div>
+<div id="mkGroups"></div>
 
 <section class="paper mk-basis">
   <h2>신호는 이렇게 정해요</h2>
@@ -32,7 +32,11 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
 
 <script>
 (function () {
-  var ORDER = ['nasdaq', 'bitcoin', 'xrp', 'kimchi_premium', 'gold', 'usdkrw', 'jpykrw', 'us10y'];
+  // 카드 배치: 묶음별로 2열씩 (왼쪽, 오른쪽 순서)
+  var GROUPS = [
+    { title: '금융자산', keys: ['nasdaq', 'us10y', 'usdkrw', 'jpykrw'] },
+    { title: '기타자산', keys: ['gold', 'kimchi_premium', 'bitcoin', 'xrp'] }
+  ];
   var ICON = { nasdaq: '📈', bitcoin: '🪙', xrp: '💧', kimchi_premium: '🇰🇷', gold: '🥇', usdkrw: '💵', jpykrw: '💴', us10y: '🏛️' };
   var RATING_KR = { 'extreme fear': '극단공포', 'fear': '공포', 'neutral': '중립', 'greed': '탐욕', 'extreme greed': '극단탐욕' };
   var SIGNAL = {
@@ -93,8 +97,11 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
 
   function render(data) {
     var assets = data.assets || {}, counts = { buy: 0, hold: 0, sell: 0 };
-    document.getElementById('mkGrid').innerHTML = ORDER.filter(function (k) { return assets[k]; })
-      .map(function (k) { return card(k, assets[k]); }).join('');
+    document.getElementById('mkGroups').innerHTML = GROUPS.map(function (g) {
+      var cards = g.keys.filter(function (k) { return assets[k]; })
+        .map(function (k) { return card(k, assets[k]); }).join('');
+      return cards ? '<h2 class="mk-group">' + g.title + '</h2><div class="mk-grid">' + cards + '</div>' : '';
+    }).join('');
     Object.keys(assets).forEach(function (k) { if (counts[assets[k].signal] !== undefined) counts[assets[k].signal]++; });
     document.getElementById('mkSummary').innerHTML =
       '<span class="buy">매수 <b>' + counts.buy + '</b></span><span class="hold">관망 <b>' + counts.hold + '</b></span><span class="sell">매도 <b>' + counts.sell + '</b></span>';
