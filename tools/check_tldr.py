@@ -3,6 +3,7 @@
 
 규칙
   1. 도입 문단 바로 다음에 <div class="tldr" markdown="1"> 블록이 있다.
+     (공부요약 글처럼 본문이 3줄 요약으로 바로 시작하는 것도 허용한다.)
   2. 블록 안에 '## 3줄 요약' 제목과 번호 목록 3개가 있다.
   3. 각 줄은 폰(360px)에서 한 줄에 들어가도록 짧다. (한글 1글자 = 1.0 기준 15.5 이하)
 
@@ -35,12 +36,19 @@ def units(text):
 def check(path):
     errs = []
     s = open(path, encoding='utf-8').read()
-    m = re.match(r'---\n.*?\n---\n\s*(.*?)\n\n(.*)', s, re.S)
+    m = re.match(r'---\n.*?\n---\n\s*(.*)', s, re.S)
     if not m:
         return ['front matter를 찾지 못했습니다']
-    intro, rest = m.group(1), m.group(2)
-    if '\n' in intro:
-        errs.append('도입 부분이 한 문단이 아닙니다 (도입 문단 뒤에 빈 줄이 필요)')
+    body = m.group(1)
+    if body.startswith('<div class="tldr"'):
+        rest = body  # 도입 문단 없이 3줄 요약으로 시작
+    else:
+        m2 = re.match(r'(.*?)\n\n(.*)', body, re.S)
+        if not m2:
+            return ['본문이 너무 짧습니다']
+        intro, rest = m2.group(1), m2.group(2)
+        if '\n' in intro:
+            errs.append('도입 부분이 한 문단이 아닙니다 (도입 문단 뒤에 빈 줄이 필요)')
     t = re.match(r'<div class="tldr" markdown="1">\n\n## 3줄 요약\n\n(.*?)\n</div>', rest, re.S)
     if not t:
         return errs + ['도입 문단 바로 다음에 3줄 요약 블록이 없습니다']
