@@ -228,7 +228,11 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
     #0a1633; }
   .wrap { padding: 0 12px; }
   .paper { padding: 22px 18px 24px; }
-  .nav { gap: 0 14px; font-size: 14px; }
+  .nav { gap: 0 11px; font-size: 14px; }
   h1 { font-size: 21px; }
   article h1 { font-size: 20px; }
+}
+
+@media (max-width: 380px) {
+  .nav { gap: 0 9px; font-size: 13.5px; }
 }
