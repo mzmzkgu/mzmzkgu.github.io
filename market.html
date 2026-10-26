@@ -24,7 +24,7 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
     <li><b>김프</b>: 업비트와 해외 거래소의 비트코인 가격 차이가 <b>-5% 이하</b>면 <span class="mk-t buy">매수</span>, <b>+5% 이상</b>이면 <span class="mk-t sell">매도(부분)</span></li>
     <li><b>금·달러·엔화</b>: 현재가가 <b>120일선보다 아래</b>면 <span class="mk-t buy">매수</span>, 현재가 &gt; 5일선 &gt; 20일선 &gt; 60일선 &gt; 120일선(정배열)이면 <span class="mk-t sell">매도(부분)</span></li>
     <li>그 밖의 경우는 모두 <span class="mk-t hold">관망</span>입니다.</li>
-    <li><b>미국채 10년물</b>: 금리(%)와 1년 최고·최저만 보여주는 <b>참고용</b> 카드이고, 매수·매도 신호는 없습니다.</li>
+    <li><b>미국채 10년물</b>: 금리가 <b>5.0% 이상</b>이면 <span class="mk-t buy">매수</span>, 그 아래는 <span class="mk-t hold">관망</span>입니다. (매도 신호는 없습니다)</li>
   </ul>
   <p class="mk-note">MDD는 최근 365일 고점에서 현재가가 얼마나 내려와 있는지(%)를 뜻합니다. 120일선 대비는 현재가가 120일 평균선보다 몇 % 위·아래인지입니다.</p>
   <p class="mk-note">참고용 신호이며 자동 매매나 투자 권유가 아닙니다. 시세는 공개 데이터에서 가져와 지연되거나 틀릴 수 있으니 투자 판단과 책임은 본인에게 있습니다. 원본 화면은 <a href="{{ '/marketTraffic/' | relative_url }}">매매 신호등</a>에서 볼 수 있습니다.</p>
@@ -59,7 +59,7 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
       var r = a.fg_score == null ? '—' : (RATING_KR[a.fg_rating] || a.fg_rating || '') + ' ' + Math.round(a.fg_score);
       rows += row('공포탐욕', r);
     }
-    if (a.driver === 'yield_ref') {
+    if (a.driver === 'yield_level') {
       rows += row('현재 금리', a.yield_pct == null ? '—' : fmt(a.yield_pct, 2) + '%');
       rows += row('1년 최고', a.high_365d == null ? '—' : fmt(a.high_365d, 2) + '%');
       rows += row('1년 최저', a.low_365d == null ? '—' : fmt(a.low_365d, 2) + '%');
