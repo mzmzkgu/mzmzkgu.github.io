@@ -20,10 +20,12 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
 <section class="paper mk-basis">
   <h2>신호는 이렇게 정해요</h2>
   <ul>
-    <li><b>나스닥·비트코인·리플</b>: 공포탐욕지수가 <b>극단공포</b>에 들어가면 <span class="mk-t buy">매수</span>, <b>극단탐욕</b>에 들어가면 <span class="mk-t sell">매도(부분)</span></li>
+    <li><b>나스닥</b>: 공포탐욕지수가 <b>극단공포</b>에 들어가면 <span class="mk-t buy">매수</span>, <b>극단탐욕</b>에 들어가면 <span class="mk-t sell">매도(부분)</span></li>
+    <li><b>비트코인</b>: 현재가가 <b>120일선 위</b>에 있으면 <span class="mk-t buy">매수</span>, 120일선 <b>아래로 내려가면</b> <span class="mk-t sell">매도</span> (공포탐욕은 참고용으로만 표시)</li>
+    <li><b>리플</b>: 메이저 코인인 비트코인에 대응되므로 <b>비트코인의 신호를 그대로 따라갑니다.</b> (카드의 가격과 MDD는 리플 자기 값)</li>
     <li><b>김프</b>: 업비트와 해외 거래소의 비트코인 가격 차이가 <b>-5% 이하</b>면 <span class="mk-t buy">매수</span>, <b>+5% 이상</b>이면 <span class="mk-t sell">매도(부분)</span></li>
     <li><b>금·달러·엔화</b>: 현재가가 <b>120일선보다 아래</b>면 <span class="mk-t buy">매수</span>, 현재가 &gt; 5일선 &gt; 20일선 &gt; 60일선 &gt; 120일선(정배열)이면 <span class="mk-t sell">매도(부분)</span></li>
-    <li>그 밖의 경우는 모두 <span class="mk-t hold">관망</span>입니다.</li>
+    <li>나스닥·김프·금·달러·엔화는 위 조건이 아니면 <span class="mk-t hold">관망</span>입니다.</li>
     <li><b>미국채 10년물</b>: 금리가 <b>5.0% 이상</b>이면 <span class="mk-t buy">매수</span>, 그 아래는 <span class="mk-t hold">관망</span>입니다. (매도 신호는 없습니다)</li>
   </ul>
   <p class="mk-note">MDD는 최근 365일 고점에서 현재가가 얼마나 내려와 있는지(%)를 뜻합니다. 120일선 대비는 현재가가 120일 평균선보다 몇 % 위·아래인지입니다.</p>
@@ -70,7 +72,7 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
   function card(key, a) {
     var s = SIGNAL[a.signal] || SIGNAL.unknown;
     var rows = '';
-    if (a.driver === 'fear_greed') {
+    if (a.driver === 'fear_greed' || a.fg_score != null) {
       var r = a.fg_score == null ? '—' : (RATING_KR[a.fg_rating] || a.fg_rating || '') + ' ' + Math.round(a.fg_score);
       rows += row('공포탐욕', r);
     }
@@ -86,14 +88,19 @@ description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매
       rows += row('현재', fmt(a.price, 0));
       rows += row('1년 최고', fmt(a.high_365d, 0));
       rows += row('MDD', a.mdd_pct == null ? '—' : fmt(a.mdd_pct, 2) + '%', a.mdd_pct < 0);
-      if (a.driver === 'moving_average') {
+      if (a.driver === 'follow_asset' && a.ref_price != null && a.ref_ma120) {
+        // 리플처럼 다른 자산(비트코인) 신호를 따라가는 카드는 그 자산의 120일선 대비를 보여줌
+        var rv = (a.ref_price / a.ref_ma120 - 1) * 100;
+        rows += row((a.follows === '비트코인' ? 'BTC' : a.follows) + ' 120일선 대비', pct(rv, 1), rv < 0);
+      }
+      if (a.driver === 'moving_average' || a.driver === 'trend_ma120') {
         var vs = (a.price != null && a.ma120) ? (a.price / a.ma120 - 1) * 100 : null;
         rows += row('120일선 대비', pct(vs, 1), vs != null && vs < 0);
       }
     }
     return '<a class="mk-card ' + s.cls + '" href="' + (LINKS[key] || '#') + '" target="_blank" rel="noopener noreferrer">' +
       '<div class="mk-top"><span class="mk-ic">' + (ICON[key] || '📊') + '</span><span class="mk-name">' + a.name_kr + '</span>' +
-      '<span class="mk-chip ' + s.cls + '">' + s.text + '</span></div>' +
+      '<span class="mk-chip ' + s.cls + '">' + (a.signal_label || s.text) + '</span></div>' +
       '<div class="mk-body">' + rows + '</div></a>';
   }
 
