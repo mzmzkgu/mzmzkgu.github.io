@@ -69,4 +69,4 @@ tags: [메르의블로그, 앤트로픽상장, 클로드]
 {: .src}
 
 원문 : [메르의 블로그](https://m.blog.naver.com/ranto28/224454915008)<br>
-내 블로그 : 멍멍짱구 작업실
+내 블로그 : [멍멍짱구 작업실](https://m.blog.naver.com/kgu3405/)

@@ -51,6 +51,8 @@ def check_source(s):
     w = units('출처 : 「' + m.group(1) + '」')
     if w > SRC_LIMIT:
         errs.append(f'출처 제목이 폰(360px)에서 두 줄로 나뉠 수 있습니다 ({w:.1f} > {SRC_LIMIT}): {m.group(1)}')
+    if not re.search(r'\]\(https?://[^)\s]+\)', m.group(3)):
+        errs.append('"내 블로그 :" 줄에 링크가 없습니다 (기본 주소 https://m.blog.naver.com/kgu3405/)')
     if s.rstrip().splitlines()[-1].startswith('내 블로그 :') is False:
         errs.append('출처 블록이 글의 맨 마지막이 아닙니다')
     return errs
