@@ -257,9 +257,12 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .mk-refresh:hover { color: var(--accent-ink); border-color: var(--accent); }
 .mk-error { background: #fdecec; color: #b42323; border-radius: 12px; padding: 12px 14px; font-size: 13.5px; margin-bottom: 12px; }
 
+.mk-group { margin: 16px 2px 8px; font-size: 15.5px; }
 .mk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
-@media (min-width: 640px) { .mk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .mk-card { --sig: var(--muted); background: var(--paper); border-radius: 14px; box-shadow: var(--shadow); border-top: 4px solid var(--sig); overflow: hidden; }
+.mk-card { display: block; color: inherit; transition: box-shadow .15s, transform .15s; }
+.mk-card:hover { text-decoration: none; box-shadow: 0 3px 10px rgba(16, 24, 40, .12); transform: translateY(-1px); }
+.mk-card:active { transform: none; }
 .mk-card.buy { --sig: var(--accent); }
 .mk-card.hold { --sig: #f0a020; }
 .mk-card.sell { --sig: #e5484d; }
