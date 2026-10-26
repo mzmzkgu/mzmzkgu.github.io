@@ -1,0 +1,112 @@
+---
+layout: default
+title: 마켓시그널
+permalink: /market/
+bare: true
+description: 나스닥, 비트코인, 리플, 김프, 금, 달러, 엔화의 매수·관망·매도 신호를 카드로 한눈에 보는 마켓시그널 페이지입니다.
+---
+<section class="paper mk-head">
+  <h1>마켓시그널</h1>
+  <p class="lead">나스닥·비트코인·리플·김프·금·달러·엔화의 오늘 신호를 카드로 모아 봅니다.</p>
+  <div class="mk-bar">
+    <span class="mk-sum" id="mkSummary"></span>
+    <span class="mk-upd"><span id="mkUpdated">불러오는 중…</span><button class="mk-refresh" id="mkRefresh" type="button" aria-label="새로고침">↻</button></span>
+  </div>
+</section>
+
+<div id="mkErr"></div>
+<div class="mk-grid" id="mkGrid"></div>
+
+<section class="paper mk-basis">
+  <h2>신호는 이렇게 정해요</h2>
+  <ul>
+    <li><b>나스닥·비트코인·리플</b>: 공포탐욕지수가 <b>극단공포</b>에 들어가면 <span class="mk-t buy">매수</span>, <b>극단탐욕</b>에 들어가면 <span class="mk-t sell">매도(부분)</span></li>
+    <li><b>김프</b>: 업비트와 해외 거래소의 비트코인 가격 차이가 <b>-5% 이하</b>면 <span class="mk-t buy">매수</span>, <b>+5% 이상</b>이면 <span class="mk-t sell">매도(부분)</span></li>
+    <li><b>금·달러·엔화</b>: 현재가가 <b>120일선보다 아래</b>면 <span class="mk-t buy">매수</span>, 현재가 &gt; 5일선 &gt; 20일선 &gt; 60일선 &gt; 120일선(정배열)이면 <span class="mk-t sell">매도(부분)</span></li>
+    <li>그 밖의 경우는 모두 <span class="mk-t hold">관망</span>입니다.</li>
+  </ul>
+  <p class="mk-note">MDD는 최근 365일 고점에서 현재가가 얼마나 내려와 있는지(%)를 뜻합니다. 120일선 대비는 현재가가 120일 평균선보다 몇 % 위·아래인지입니다.</p>
+  <p class="mk-note">참고용 신호이며 자동 매매나 투자 권유가 아닙니다. 시세는 공개 데이터에서 가져와 지연되거나 틀릴 수 있으니 투자 판단과 책임은 본인에게 있습니다. 원본 화면은 <a href="{{ '/marketTraffic/' | relative_url }}">매매 신호등</a>에서 볼 수 있습니다.</p>
+</section>
+
+<script>
+(function () {
+  var ORDER = ['nasdaq', 'bitcoin', 'xrp', 'kimchi_premium', 'gold', 'usdkrw', 'jpykrw'];
+  var ICON = { nasdaq: '📈', bitcoin: '🪙', xrp: '💧', kimchi_premium: '🇰🇷', gold: '🥇', usdkrw: '💵', jpykrw: '💴' };
+  var RATING_KR = { 'extreme fear': '극단공포', 'fear': '공포', 'neutral': '중립', 'greed': '탐욕', 'extreme greed': '극단탐욕' };
+  var SIGNAL = {
+    buy:     { cls: 'buy',  text: '매수' },
+    sell:    { cls: 'sell', text: '매도(부분)' },
+    hold:    { cls: 'hold', text: '관망' },
+    unknown: { cls: 'off',  text: '오류' }
+  };
+
+  function fmt(x, d) {
+    if (x === null || x === undefined || isNaN(x)) return '—';
+    return Number(x).toLocaleString('ko-KR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function pct(v, d) { return v == null ? '—' : (v >= 0 ? '+' : '') + fmt(v, d) + '%'; }
+  function row(label, value, neg) {
+    return '<div class="mk-row"><span class="mk-lbl">' + label + '</span><span class="mk-val' + (neg ? ' neg' : '') + '">' + value + '</span></div>';
+  }
+
+  function card(key, a) {
+    var s = SIGNAL[a.signal] || SIGNAL.unknown;
+    var rows = '';
+    if (a.driver === 'fear_greed') {
+      var r = a.fg_score == null ? '—' : (RATING_KR[a.fg_rating] || a.fg_rating || '') + ' ' + Math.round(a.fg_score);
+      rows += row('공포탐욕', r);
+    }
+    if (a.driver === 'kimchi_premium') {
+      rows += row('현재', pct(a.premium_pct, 2), a.premium_pct < 0);
+      rows += row('1년 최고', pct(a.high_365d, 2));
+      rows += row('1년 최저', pct(a.low_365d, 2));
+    } else {
+      rows += row('현재', fmt(a.price, 0));
+      rows += row('1년 최고', fmt(a.high_365d, 0));
+      rows += row('MDD', a.mdd_pct == null ? '—' : fmt(a.mdd_pct, 2) + '%', a.mdd_pct < 0);
+      if (a.driver === 'moving_average') {
+        var vs = (a.price != null && a.ma120) ? (a.price / a.ma120 - 1) * 100 : null;
+        rows += row('120일선 대비', pct(vs, 1), vs != null && vs < 0);
+      }
+    }
+    return '<div class="mk-card ' + s.cls + '">' +
+      '<div class="mk-top"><span class="mk-ic">' + (ICON[key] || '📊') + '</span><span class="mk-name">' + a.name_kr + '</span>' +
+      '<span class="mk-chip ' + s.cls + '">' + s.text + '</span></div>' +
+      '<div class="mk-body">' + rows + '</div></div>';
+  }
+
+  // updated_at 은 "2026-10-26T23:00:10+09:00" 처럼 한국 시간으로 오므로, 브라우저 시간대와 상관없이 글자 그대로 읽는다
+  function updated(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso);
+    if (!m) return '';
+    var h = parseInt(m[4], 10), ap = h < 12 ? '오전' : '오후';
+    h = h % 12 || 12;
+    return m[1].slice(2) + '.' + m[2] + '.' + m[3] + ' ' + ap + ' ' + h + ':' + m[5] + ' 갱신';
+  }
+
+  function render(data) {
+    var assets = data.assets || {}, counts = { buy: 0, hold: 0, sell: 0 };
+    document.getElementById('mkGrid').innerHTML = ORDER.filter(function (k) { return assets[k]; })
+      .map(function (k) { return card(k, assets[k]); }).join('');
+    Object.keys(assets).forEach(function (k) { if (counts[assets[k].signal] !== undefined) counts[assets[k].signal]++; });
+    document.getElementById('mkSummary').innerHTML =
+      '<span class="buy">매수 <b>' + counts.buy + '</b></span><span class="hold">관망 <b>' + counts.hold + '</b></span><span class="sell">매도 <b>' + counts.sell + '</b></span>';
+    document.getElementById('mkUpdated').textContent = data.updated_at ? updated(data.updated_at) : '';
+    document.getElementById('mkErr').innerHTML = '';
+  }
+
+  function load() {
+    document.getElementById('mkUpdated').textContent = '불러오는 중…';
+    fetch('{{ "/marketTraffic/signals.json" | relative_url }}', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(render)
+      .catch(function (e) {
+        document.getElementById('mkErr').innerHTML = '<div class="mk-error">신호 데이터를 불러오지 못했어요 (' + e.message + '). 잠시 뒤 새로고침해 주세요.</div>';
+        document.getElementById('mkUpdated').textContent = '';
+      });
+  }
+  document.getElementById('mkRefresh').addEventListener('click', load);
+  load();
+})();
+</script>

@@ -240,3 +240,44 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 
 /* ===== 공부요약 출처 구분 탭 ===== */
 .post-body h3.src { font-size: 14px; letter-spacing: -.03em; }
+
+/* ===== 마켓시그널 ===== */
+.mk-head { padding: 20px 20px 16px; margin-bottom: 12px; }
+.mk-head h1 { margin-bottom: 6px; }
+.mk-head .lead { margin: 0 0 12px; font-size: 14.5px; }
+.mk-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13.5px; }
+.mk-sum span { margin-right: 12px; color: var(--sub); }
+.mk-sum b { font-weight: 800; }
+.mk-sum .buy b, .mk-t.buy { color: var(--accent-ink); }
+.mk-sum .hold b, .mk-t.hold { color: #b86e00; }
+.mk-sum .sell b, .mk-t.sell { color: #d6333a; }
+.mk-t { font-weight: 700; }
+.mk-upd { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.mk-refresh { margin-left: 6px; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; background: var(--soft); color: var(--sub); font-size: 13px; line-height: 1; cursor: pointer; }
+.mk-refresh:hover { color: var(--accent-ink); border-color: var(--accent); }
+.mk-error { background: #fdecec; color: #b42323; border-radius: 12px; padding: 12px 14px; font-size: 13.5px; margin-bottom: 12px; }
+
+.mk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+@media (min-width: 640px) { .mk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mk-card { --sig: var(--muted); background: var(--paper); border-radius: 14px; box-shadow: var(--shadow); border-top: 4px solid var(--sig); overflow: hidden; }
+.mk-card.buy { --sig: var(--accent); }
+.mk-card.hold { --sig: #f0a020; }
+.mk-card.sell { --sig: #e5484d; }
+.mk-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 6px; padding: 10px 11px 9px; border-bottom: 1px solid var(--line); }
+.mk-ic { width: 28px; height: 28px; border-radius: 50%; background: var(--soft); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; line-height: 1; flex: none; }
+.mk-name { font-size: 15px; font-weight: 800; letter-spacing: -.03em; white-space: nowrap; }
+.mk-chip { margin-left: auto; font-size: 11.5px; font-weight: 800; padding: 1px 8px; border-radius: 999px; line-height: 1.6; white-space: nowrap; background: var(--soft); color: var(--sub); }
+.mk-chip.buy { background: var(--accent-soft); color: var(--accent-ink); }
+.mk-chip.hold { background: #fff3dc; color: #a35f00; }
+.mk-chip.sell { background: #fdecec; color: #c62d33; }
+.mk-body { padding: 8px 11px 10px; }
+.mk-row { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; padding: 2px 0; font-size: 13px; line-height: 1.6; }
+.mk-lbl { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.mk-val { font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.02em; text-align: right; white-space: nowrap; }
+.mk-val.neg { color: #d6333a; }
+
+.mk-basis { padding: 20px 20px 14px; }
+.mk-basis h2 { margin: 0 0 10px; font-size: 16.5px; }
+.mk-basis ul { margin: 0 0 12px; padding-left: 18px; font-size: 14px; line-height: 1.75; }
+.mk-basis li { margin-bottom: 6px; }
+.mk-note { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 0 0 8px; }
