@@ -148,6 +148,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .post-body strong { font-weight: 700; }
 .post-body .red { color: #e5372b; font-weight: 700; }
 .post-body .green { color: #2f9e55; font-weight: 600; }
+.post-body .blue { color: #2a6fc4; font-weight: 600; }
 .post-body .hl { background: var(--mark); padding: 0 3px; }
 .post-body blockquote {
   margin: 16px 0; padding: 12px 16px; background: var(--soft);
