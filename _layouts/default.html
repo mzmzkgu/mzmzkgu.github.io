@@ -14,6 +14,11 @@
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+  <!-- PWA: 홈 화면에 앱으로 설치 + 오프라인/푸시 알림 (sw.js, manifest.json 은 저장소 루트) -->
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta name="theme-color" content="#0a1633">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="소소한 재테크">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -27,6 +32,13 @@
   <!-- 네이버 서치어드바이저 소유권 확인 -->
   <meta name="naver-site-verification" content="0c354936634c5c05a78e1e2fd88be9b5db8c3139" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4718734406379749" crossorigin="anonymous"></script>
+  <script>
+    if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}").catch(function (e) { console.warn("SW 등록 실패", e); });
+      });
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
