@@ -126,7 +126,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
   width: fit-content; max-width: 100%; background: var(--mark); padding: 1px 8px;
   border-radius: 4px; margin: 38px 0 14px; font-size: 17px;
 }
-.post-body h3 { margin: 26px 0 6px; padding-left: 10px; border-left: 3px solid var(--text); line-height: 1.4; }
+.post-body h3 { margin: 52px 0 6px; padding-left: 10px; border-left: 3px solid var(--text); line-height: 1.4; }
 .post-body img { display: block; max-width: 100%; height: auto; margin: 16px auto; border-radius: 8px; border: 1px solid var(--line); }
 .post-body img.narrow { max-width: min(340px, 100%); }
 .post-body img.mid { max-width: min(560px, 100%); }
