@@ -1,0 +1,18 @@
+{
+  "id": "/",
+  "name": "소소한 재테크 작업실",
+  "short_name": "소소한 재테크",
+  "description": "공모주·무한매수 투자 기록 도구와 사용 가이드, 투자 공부 기록",
+  "lang": "ko",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f3f5",
+  "theme_color": "#0a1633",
+  "icons": [
+    { "src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
