@@ -238,8 +238,10 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .tool-link:hover { background: #d4efe3; color: var(--accent-ink); text-decoration: none; }
 
 /* ===== 푸터 ===== */
-.site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12.5px; line-height: 1.8; }
-.site-footer .links { display: flex; gap: 4px 16px; flex-wrap: wrap; margin-bottom: 6px; }
+.site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12px; line-height: 1.9; text-align: center; }
+.site-footer .links { display: flex; justify-content: center; align-items: center; margin-bottom: 6px; font-size: 12.5px; }
+.site-footer .links a + a::before { content: "|"; color: #cfd4da; margin: 0 11px; display: inline-block; }
+.site-footer .copy, .site-footer .notice-line { white-space: nowrap; font-size: min(12px, 3.3vw); }
 .site-footer a { color: var(--sub); }
 .site-footer a:hover { color: var(--accent-ink); }
 
