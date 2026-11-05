@@ -50,7 +50,6 @@
         <a href="{{ s.url | relative_url }}" {% if page.url == s.url or page.categories contains s.key %}class="active"{% endif %}>{{ s.nav | default: s.title }}</a>
         {% endfor %}
         <a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>
-        <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}class="active"{% endif %}>문의</a>
       </nav>
     </div>
   </header>
