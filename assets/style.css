@@ -30,8 +30,8 @@ body {
 }
 
 /* 줄바꿈 다듬기: 마지막 줄에 한두 글자만 남는 것을 줄이고, 제목·짧은 설명은 줄 길이를 고르게 */
-p, li, blockquote, td, .excerpt, .home-note, .notice, .site-footer div { text-wrap: pretty; }
-h1, h2, h3, .lead, .section-title, .intro-card p, .app-card .name, .app-card .desc,
+p, li, blockquote, td, .excerpt, .hm-note, .notice, .site-footer div { text-wrap: pretty; }
+h1, h2, h3, .lead, .hm-name, .hm-desc,
 .post-list .title, .post-body em, .crumb { text-wrap: balance; }
 
 a { color: var(--accent-ink); text-decoration: none; }
@@ -74,29 +74,40 @@ p { margin: 0 0 14px; }
   padding: 26px 24px 28px;
 }
 
-/* ===== 홈 ===== */
-.home-section { margin: 8px 0 34px; }
-.section-title {
-  font-size: 17px; margin: 0 0 12px; font-weight: 800;
-  display: inline-block; background: linear-gradient(transparent 58%, var(--mark) 58%); padding: 0 2px;
+/* ===== 홈 (MyFitness 와 같은 둥근 카드 테마) ===== */
+.hm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 6px 0 14px; }
+.hm-card {
+  --hm-ac: #3182f6; --hm-ac-d: #1b64da; --hm-tint: #e8f3ff;
+  background: var(--paper); border-radius: 24px; padding: 10px 10px 20px;
+  box-shadow: 0 1px 2px rgba(25, 31, 40, .05), 0 8px 24px rgba(25, 31, 40, .04);
+  display: flex; flex-direction: column;
 }
-.intro-card { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 22px 10px; }
-.intro-card p { margin: 0 0 12px; font-size: 15.5px; line-height: 1.85; }
-
-.apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.app-card { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 22px; display: flex; flex-direction: column; }
-.app-card .head { display: flex; align-items: center; gap: 7px; }
-.app-card .icon { font-size: 17px; line-height: 1; flex: none; }
-.app-card .name { font-size: 16px; font-weight: 800; }
-.app-card .desc { font-size: 13.5px; color: var(--sub); margin: 4px 0 16px; line-height: 1.7; flex: 1; }
-.app-card .actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.btn {
-  display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
-  padding: 8px 18px; border-radius: 999px; font-size: 13.5px; line-height: 1.5;
+.hm-infinity { --hm-ac: #4f5bd5; --hm-ac-d: #3a45b8; --hm-tint: #eef0ff; }
+.hm-art {
+  background: var(--hm-tint); border-radius: 16px; aspect-ratio: 16 / 9;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.btn:hover { background: var(--accent-ink); color: #fff; text-decoration: none; }
-.app-card .more { font-size: 13.5px; font-weight: 600; }
-.home-note { font-size: 13px; color: var(--muted); margin-top: 12px; line-height: 1.7; }
+.hm-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.hm-body { padding: 18px 12px 0; display: flex; flex-direction: column; flex: 1; }
+.hm-name { font-size: 20px; font-weight: 800; letter-spacing: -.02em; line-height: 1.35; margin: 0; }
+.hm-desc { font-size: 14px; color: var(--sub); line-height: 1.65; margin: 6px 0 20px; flex: 1; }
+.hm-actions { display: flex; gap: 8px; }
+.hm-open, .hm-posts {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 46px; border-radius: 14px; font-size: 14.5px; font-weight: 700; line-height: 1;
+  white-space: nowrap; transition: background .15s, transform .1s;
+}
+.hm-open { flex: 1.5; background: var(--hm-ac); color: #fff; }
+.hm-open svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
+.hm-open:hover { background: var(--hm-ac-d); color: #fff; text-decoration: none; }
+.hm-open:hover svg { transform: translateX(2px); }
+.hm-posts { flex: 1; background: var(--hm-tint); color: var(--hm-ac-d); }
+.hm-posts:hover { filter: brightness(.96); color: var(--hm-ac-d); text-decoration: none; }
+.hm-open:active, .hm-posts:active { transform: scale(.97); }
+.hm-note { font-size: 12.5px; color: var(--muted); text-align: center; margin: 0 0 8px; line-height: 1.7; }
+@media (max-width: 640px) {
+  .hm-grid { grid-template-columns: 1fr; gap: 12px; }
+}
 
 /* ===== 글 목록 ===== */
 .paper > h1 { margin-bottom: 8px; }

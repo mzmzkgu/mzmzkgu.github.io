@@ -5,34 +5,30 @@ description: 소액 재테크를 관리하기 위한 공모주 수익관리, 무
 ---
 <h1 class="sr-only">소소한 재테크 작업실 - 소액 재테크 관리 도구</h1>
 
-<section class="home-section">
-  <h2 class="section-title">소개</h2>
-  <div class="intro-card">
-    <p>소액 재테크를 관리하기 위한 웹사이트입니다.</p>
-    <p>원래는 제가 편하게 쓰려고 만든 건데, 공유해봐도 좋을 것 같아 올려봅니다.</p>
-    <p>투자방법, 관리방법 등을 글로 남겨놨으니 참고해서 사용하세요! 성투!! 🙌</p>
-  </div>
-</section>
+<div class="hm-grid">
+  <article class="hm-card hm-ipo">
+    <div class="hm-art"><img src="{{ '/assets/images/home/ipo-note.svg' | relative_url }}" alt="공모주 수익관리를 상징하는 노트 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">공모주 수익관리</h2>
+      <p class="hm-desc">청약·환불·상장 일정과 수익을 한곳에서 기록하고 확인하는 도구</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/ipotracker/' | relative_url }}">도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="hm-posts" href="{{ '/ipo/' | relative_url }}">관련 글</a>
+      </div>
+    </div>
+  </article>
 
-<section class="home-section">
-  <h2 class="section-title">컨텐츠</h2>
-  <div class="apps">
-    <div class="app-card">
-      <div class="head"><span class="icon">📈</span> <span class="name">공모주 수익관리</span></div>
-      <div class="desc">청약·환불·상장 일정과 수익을 한곳에서 기록하고 확인하는 도구</div>
-      <div class="actions">
-        <a class="btn" href="{{ '/ipotracker/' | relative_url }}">도구 열기</a>
-        <a class="more" href="{{ '/ipo/' | relative_url }}">관련 글 보기 →</a>
+  <article class="hm-card hm-infinity">
+    <div class="hm-art"><img src="{{ '/assets/images/home/infinity-chart.svg' | relative_url }}" alt="무한매수법을 상징하는 TQQQ 차트 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">무한매수법</h2>
+      <p class="hm-desc">무한매수법의 회차별 매수·매도 기록과<br>평단을 관리하는 도구</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/infinityBuy/' | relative_url }}">도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="hm-posts" href="{{ '/infinity/' | relative_url }}">관련 글</a>
       </div>
     </div>
-    <div class="app-card">
-      <div class="head"><span class="icon">♾️</span> <span class="name">무한매수법</span></div>
-      <div class="desc">무한매수법의 회차별 매수·매도 기록과 평단을 관리하는 도구</div>
-      <div class="actions">
-        <a class="btn" href="{{ '/infinityBuy/' | relative_url }}">도구 열기</a>
-        <a class="more" href="{{ '/infinity/' | relative_url }}">관련 글 보기 →</a>
-      </div>
-    </div>
-  </div>
-  <p class="home-note">두 도구 모두 로그인 없이 쓸 수 있고, 입력한 데이터는 서버로 보내지 않고 내 브라우저에서만 처리됩니다.</p>
-</section>
+  </article>
+</div>
+
+<p class="hm-note">로그인 없이 쓸 수 있고, 입력한 데이터는 서버로 보내지 않고 내 브라우저에서만 처리돼요.</p>
