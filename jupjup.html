@@ -1,0 +1,68 @@
+---
+layout: default
+title: 줍줍매매
+permalink: /jupjup/
+description: 공포탐욕지수(F&G)와 VIX로 TQQQ 분할매수(B1~B5)·분할매도(S1~S3) 타이밍을 확인하고, 매매 기록을 내 브라우저에 저장하는 줍줍매매 도구를 소개합니다.
+---
+<h1>줍줍매매</h1>
+<p class="lead">
+  공포탐욕지수(F&amp;G)와 VIX를 보고 TQQQ를 나눠서 사고(B1~B5) 나눠서 파는(S1~S3) 타이밍을 확인하고 기록하는 도구입니다.
+  <a class="tool-link" href="{{ '/buytheDip/' | relative_url }}">줍줍매매 도구 열기</a>
+</p>
+
+<div class="post-body tool-preview">
+  <p>
+    <strong>줍줍매매 도구는 이렇게 생겼어요.</strong>
+    대시보드에서는 F&amp;G·VIX·TQQQ·환율 시세와 총 투자금, 평가금액, 수익률, 진행단계(B1~B5, S1~S3), 자금 흐름 차트를 봅니다.
+    매매기록에서는 단계별 조건과 매수·매도 비중을 확인하고 체결 결과를 입력합니다.
+    옵션에서는 다크 모드, 원화 표시, 총 시드, 백업을 설정합니다.
+    (화면의 매매 기록은 예시이고, 시세는 2026년 11월 6일 기준입니다.)
+  </p>
+  <div class="shots grid2">
+    <p><img src="{{ '/assets/images/buythedip/dashboard.jpg' | relative_url }}" alt="줍줍매매 대시보드: F&G와 VIX 시세, 포지션 요약, B1~B5·S1~S3 진행단계, 자금 흐름 차트" loading="lazy"></p>
+    <p><img src="{{ '/assets/images/buythedip/record-list.jpg' | relative_url }}" alt="줍줍매매 매매기록: 단계별 매매일, 가격과 수량, 매수비중 표" loading="lazy"></p>
+    <p><img src="{{ '/assets/images/buythedip/record-input.jpg' | relative_url }}" alt="줍줍매매 매매 입력 화면: 매매일, 가격, 수량을 적으면 환율과 F&G·VIX는 현재값으로 채워짐" loading="lazy"></p>
+    <p><img src="{{ '/assets/images/buythedip/options.jpg' | relative_url }}" alt="줍줍매매 옵션 화면: 다크 모드, 차트 통화, 총 시드, 백업 내보내기와 가져오기" loading="lazy"></p>
+  </div>
+</div>
+
+<div class="post-body">
+  <h2>매매 규칙</h2>
+  <p>시장이 겁에 질렸을 때 시드를 5번에 나눠 사고, 탐욕이 커졌을 때 3번에 나눠 파는 규칙입니다. 매수는 시드(총 투자 예산)의 비중, 매도는 그때 평가액의 비중입니다.</p>
+  <table>
+    <thead><tr><th>단계</th><th>조건</th><th>비중</th></tr></thead>
+    <tbody>
+      <tr><td>B1</td><td>F&amp;G 25 이하 <b>그리고</b> VIX 20 이상</td><td>시드의 10%</td></tr>
+      <tr><td>B2</td><td>F&amp;G 20 이하 <b>그리고</b> VIX 25 이상</td><td>15%</td></tr>
+      <tr><td>B3</td><td>F&amp;G 15 이하 <b>그리고</b> VIX 30 이상</td><td>20%</td></tr>
+      <tr><td>B4</td><td>F&amp;G 10 이하 <b>그리고</b> VIX 35 이상</td><td>25%</td></tr>
+      <tr><td>B5</td><td>F&amp;G 5 이하 <b>또는</b> VIX 40 이상</td><td>30%</td></tr>
+      <tr><td>S1</td><td>F&amp;G 65 이상 <b>그리고</b> 수익률 10% 이상</td><td>평가액의 20%</td></tr>
+      <tr><td>S2</td><td>F&amp;G 70 이상 <b>그리고</b> 수익률 20% 이상</td><td>30%</td></tr>
+      <tr><td>S3</td><td>F&amp;G 75 이상 (수익률 0% 이상)</td><td>50%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>이렇게 사용해요</h2>
+  <ol>
+    <li>회차 선택 줄의 <b>+ 추가</b>를 눌러 회차 이름과 총 시드(USD)를 정합니다. 한 번의 매수·매도 사이클을 한 회차로 기록합니다.</li>
+    <li>대시보드에서 F&amp;G와 VIX를 봅니다. 조건을 채운 단계는 빨간 테두리로 깜빡이고, 아래 상태 문구에 <b>🚨 B1 매수 조건 충족!</b>처럼 알려줍니다.</li>
+    <li>매매기록 탭에서 해당 단계의 <b>입력</b> 버튼을 눌러 매매일, 가격, 수량을 저장합니다. 환율과 F&amp;G·VIX는 현재 값이 자동으로 채워지고, 저장한 뒤에는 <b>수정</b>으로 고칩니다.</li>
+    <li>옵션(톱니 아이콘)에서 다크 모드, 차트 통화($·₩), 총 시드를 바꾸고 백업을 내보냅니다.</li>
+  </ol>
+
+  <h2>데이터는 어디에 저장되나요</h2>
+  <p>
+    입력한 회차와 매매 기록은 서버로 보내지 않고 <b>내 브라우저(localStorage)에만</b> 저장됩니다.
+    그래서 로그인이 필요 없지만, 브라우저의 사이트 데이터를 지우면 기록도 함께 사라집니다.
+    가끔 옵션의 <b>백업 내보내기</b>로 JSON 파일을 저장해 두고, 다른 기기로 옮길 때는 <b>가져오기</b>를 쓰세요.
+    시세(F&amp;G·VIX·TQQQ·환율)만 시세 서버에서 불러옵니다.
+  </p>
+
+  <h2>참고</h2>
+  <ul>
+    <li>TQQQ는 나스닥100 지수를 하루 단위로 3배 추종하는 레버리지 ETF라 변동성이 매우 큽니다.</li>
+    <li>위 규칙은 도구에 넣어 둔 기준이며 수익을 보장하지 않습니다. 투자 판단과 책임은 본인에게 있습니다.</li>
+    <li>시세는 공개 데이터를 가져온 것이라 지연되거나 틀릴 수 있습니다.</li>
+  </ul>
+</div>
