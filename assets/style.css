@@ -328,8 +328,14 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 /* i 버튼 안내창 (아래에서 올라오는 시트) */
 .mk-dlg { border: 0; padding: 0; background: transparent; color: var(--text); width: min(520px, 100%); max-width: 100%; max-height: 100dvh; margin: auto auto 0; overflow: visible; }
 .mk-dlg::backdrop { background: rgba(25, 31, 40, .5); }
-.mk-dlg[open] { animation: mkup .26s cubic-bezier(.2, .8, .2, 1); }
-@keyframes mkup { from { transform: translateY(36px); opacity: 0; } }
+.mk-dlg[open] .mk-sheet { animation: mkIn .5s cubic-bezier(.3, .1, .2, 1); }
+.mk-dlg[open]::backdrop { animation: mkFade .5s ease; }
+.mk-dlg.closing .mk-sheet { animation: mkOut .3s cubic-bezier(.4, 0, 1, 1) forwards; }
+.mk-dlg.closing::backdrop { animation: mkFade .3s ease reverse forwards; }
+@keyframes mkIn { from { transform: translateY(70%); opacity: 0; } }
+@keyframes mkOut { to { transform: translateY(70%); opacity: 0; } }
+@keyframes mkFade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mk-dlg[open] .mk-sheet, .mk-dlg[open]::backdrop, .mk-dlg.closing .mk-sheet, .mk-dlg.closing::backdrop { animation: none; } }
 .mk-sheet { background: #fff; border-radius: 26px 26px 0 0; padding: 22px 20px calc(24px + env(safe-area-inset-bottom)); max-height: 88dvh; overflow: auto; }
 .mk-sheet::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 99px; background: #d9dde2; margin: -10px auto 14px; }
 .mk-sh-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
