@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="공부요약을 상징하는 펼친 책과 전구 그림">
+  <circle cx="46" cy="132" r="26" fill="#ffe3bd"/>
+  <circle cx="276" cy="48" r="22" fill="#ffe3bd"/>
+  <!-- 전구 -->
+  <g>
+    <path d="M160 12a22 22 0 0 0-12 40v8h24v-8a22 22 0 0 0-12-40z" fill="#ffd34d"/>
+    <path d="M154 28a12 12 0 0 1 10-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+    <rect x="149" y="60" width="22" height="6" rx="3" fill="#e5a400"/>
+    <rect x="152" y="67" width="16" height="4" rx="2" fill="#c98f00"/>
+    <g stroke="#ffb400" stroke-width="3" stroke-linecap="round">
+      <path d="M122 22l-8-5M198 22l8-5M112 44h-10M208 44h10"/>
+    </g>
+  </g>
+  <!-- 펼친 책 -->
+  <path d="M160 86C140 76 104 74 70 80v70c34-6 70-4 90 8z" fill="#fff" stroke="#f3c88a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M160 86c20-10 56-12 90-6v70c-34-6-70-4-90 8z" fill="#fffaf2" stroke="#f3c88a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M160 86v72" stroke="#f3c88a" stroke-width="2"/>
+  <path d="M64 84v70c-4 0-8 2-8 5V90c0-3 4-6 8-6z" fill="#e8780a" opacity=".9"/>
+  <path d="M256 84v70c4 0 8 2 8 5V90c0-3-4-6-8-6z" fill="#e8780a" opacity=".9"/>
+  <!-- 왼쪽 쪽: 글줄 + 형광펜 -->
+  <rect x="82" y="94" width="58" height="6" rx="3" fill="#e6eaef"/>
+  <rect x="80" y="108" width="62" height="10" rx="3" fill="#ffe27a"/>
+  <rect x="82" y="110" width="52" height="6" rx="3" fill="#cdb44a" opacity=".55"/>
+  <rect x="82" y="124" width="48" height="6" rx="3" fill="#e6eaef"/>
+  <rect x="82" y="136" width="56" height="6" rx="3" fill="#e6eaef"/>
+  <!-- 오른쪽 쪽: 요약 체크 -->
+  <circle cx="184" cy="100" r="6.5" fill="#e8780a"/><path d="M181 100l2.2 2.2 3.8-4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="196" y="97" width="26" height="6" rx="3" fill="#e6eaef"/>
+  <circle cx="184" cy="120" r="6.5" fill="#e8780a"/><path d="M181 120l2.2 2.2 3.8-4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="196" y="117" width="34" height="6" rx="3" fill="#e6eaef"/>
+  <circle cx="184" cy="140" r="6.5" fill="#e8780a"/><path d="M181 140l2.2 2.2 3.8-4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="196" y="137" width="40" height="6" rx="3" fill="#e6eaef"/>
+  <!-- 책갈피 -->
+  <path d="M226 82v24l7-5 7 5V80z" fill="#f04452"/>
+  <!-- 반짝 -->
+  <path d="M286 100l2.4 5.6 5.6 2.4-5.6 2.4-2.4 5.6-2.4-5.6-5.6-2.4 5.6-2.4z" fill="#fff"/>
+  <path d="M34 70l1.8 4.2 4.2 1.8-4.2 1.8L34 82l-1.8-4.2L28 76l4.2-1.8z" fill="#fff"/>
+</svg>
