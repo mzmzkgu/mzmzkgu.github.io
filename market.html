@@ -218,7 +218,15 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     }
   });
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  // 닫을 때도 0.3초 부드럽게 (바깥 누르기, ESC 모두)
+  var closing = false;
+  function closeDlg() {
+    if (closing || !dlg.open) return;
+    closing = true; dlg.classList.add('closing');
+    setTimeout(function () { dlg.close(); dlg.classList.remove('closing'); closing = false; }, 300);
+  }
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeDlg(); });
+  dlg.addEventListener('cancel', function (e) { e.preventDefault(); closeDlg(); });
   document.getElementById('mkRefresh').addEventListener('click', load);
   load();
 })();
