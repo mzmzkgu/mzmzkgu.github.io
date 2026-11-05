@@ -106,7 +106,9 @@ p { margin: 0 0 14px; }
 .hm-posts { flex: 1; background: var(--hm-tint); color: var(--hm-ac-d); }
 .hm-posts:hover { filter: brightness(.96); color: var(--hm-ac-d); text-decoration: none; }
 .hm-open:active, .hm-posts:active { transform: scale(.97); }
-.hm-note { font-size: 12.5px; color: var(--muted); text-align: center; margin: 0 0 8px; line-height: 1.7; }
+.hm-note { font-size: min(13px, 3.5vw); color: var(--muted); text-align: center; margin: 4px 0 8px; line-height: 1.8; }
+.hm-note span { display: block; white-space: nowrap; }
+.hm-note .red { color: #e0303d; font-weight: 700; }
 @media (max-width: 640px) {
   .hm-grid { grid-template-columns: 1fr; gap: 12px; }
 }
