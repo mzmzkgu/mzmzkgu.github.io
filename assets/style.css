@@ -84,7 +84,7 @@ p { margin: 0 0 14px; }
 }
 .hm-infinity { --hm-ac: #4f5bd5; --hm-ac-d: #3a45b8; --hm-tint: #eef0ff; }
 .hm-market { --hm-ac: #12a374; --hm-ac-d: #0d7f5a; --hm-tint: #e3f7ee; }
-.hm-wide { grid-column: 1 / -1; }
+.hm-study { --hm-ac: #e07b00; --hm-ac-d: #b86100; --hm-tint: #fff1dc; }
 .hm-art {
   background: var(--hm-tint); border-radius: 16px; aspect-ratio: 16 / 9;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
@@ -107,13 +107,6 @@ p { margin: 0 0 14px; }
 .hm-posts:hover { filter: brightness(.96); color: var(--hm-ac-d); text-decoration: none; }
 .hm-open:active, .hm-posts:active { transform: scale(.97); }
 .hm-note { font-size: 12.5px; color: var(--muted); text-align: center; margin: 0 0 8px; line-height: 1.7; }
-@media (min-width: 641px) {
-  .hm-wide { flex-direction: row; align-items: stretch; gap: 8px; padding: 10px 24px 10px 10px; }
-  .hm-wide .hm-art { flex: 0 0 44%; }
-  .hm-wide .hm-body { padding: 8px 6px 8px 16px; justify-content: center; }
-  .hm-wide .hm-desc { flex: 0 1 auto; margin-bottom: 18px; }
-  .hm-wide .hm-actions { max-width: 240px; }
-}
 @media (max-width: 640px) {
   .hm-grid { grid-template-columns: 1fr; gap: 12px; }
 }
