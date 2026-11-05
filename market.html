@@ -17,7 +17,7 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
 <div id="mkTop"></div>
 <div id="mkGrid"></div>
 
-<p class="mk-foot">참고용 신호이며 투자 권유가 아닙니다. 시세는 공개 데이터라 지연되거나 틀릴 수 있어요. 카드를 누르면 시세 화면이, <b>i</b> 버튼을 누르면 자세한 값과 신호 기준이 열립니다. 원본은 <a href="{{ '/marketTraffic/' | relative_url }}">매매 신호등</a>에서 볼 수 있어요.</p>
+<p class="mk-foot"><span>※ 참고용 신호이며 투자 권유가 아닙니다.</span><span>※ 데이터 지연으로 실제값과 차이가 있을 수 있습니다.</span></p>
 
 <dialog id="mkDlg" class="mk-dlg" aria-label="상세 정보"><div class="mk-sheet" id="mkSheet"></div></dialog>
 
@@ -36,15 +36,18 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
   };
   // 위쪽 두 장(공포탐욕 게이지, VIX)을 뺀 나머지 카드 배치: 한 줄에 3장
   var ROWS = [['nasdaq', 'us10y', 'usdkrw'], ['gold', 'bitcoin', 'kimchi_premium']];
-  // 신호 기준 (눌러서 열리는 안내창에 표시)
+  // 신호 기준 (i 버튼 안내창에 표시). 배열의 한 칸이 한 줄이라 짧게 쓴다
   var RULE = {
-    nasdaq: '공포탐욕지수가 극단공포(20 이하)면 매수, 극단탐욕(80 초과)이면 매도(부분), 그 사이는 관망',
-    us10y: '금리가 5.0% 이상이면 매수, 그 아래는 관망 (매도 신호는 없음)',
-    usdkrw: '현재가가 120일선 아래면 매수, 현재가 > 5일선 > 20일선 > 60일선 > 120일선(정배열)이면 매도(부분), 그 외 관망',
-    gold: '현재가가 120일선 아래면 매수, 현재가 > 5일선 > 20일선 > 60일선 > 120일선(정배열)이면 매도(부분), 그 외 관망',
-    bitcoin: '현재가가 120일선 위면 매수, 120일선 아래로 내려가면 매도 (리플도 이 신호를 따라가요)',
-    kimchi_premium: '업비트와 해외 거래소의 비트코인 가격 차이가 -5% 이하면 매수, +5% 이상이면 매도(부분), 그 사이는 관망'
+    nasdaq: ['공포탐욕 20 이하(극단공포) → 매수', '공포탐욕 80 초과(극단탐욕) → 매도(부분)', '그 외는 관망'],
+    us10y: ['금리 5.0% 이상 → 매수', '그 아래는 관망 (매도 신호 없음)'],
+    usdkrw: ['120일선 아래 → 매수', '정배열(5>20>60>120일선) → 매도(부분)', '그 외는 관망'],
+    gold: ['120일선 아래 → 매수', '정배열(5>20>60>120일선) → 매도(부분)', '그 외는 관망'],
+    bitcoin: ['120일선 위 → 매수', '120일선 아래로 내려가면 → 매도'],
+    kimchi_premium: ['-5% 이하 → 매수', '+5% 이상 → 매도(부분)', '그 사이는 관망']
   };
+  function ruleHtml(title, lines) {
+    return '<div class="mk-rule"><b>' + title + '</b>' + lines.map(function (l) { return '<span>' + l + '</span>'; }).join('') + '</div>';
+  }
   var ICON = {
     nasdaq: '<path d="M4 18l5-5.5 3.5 3L20 7"/><path d="M15 7h5v5"/>',
     us10y: '<path d="M3 10l9-6 9 6"/><path d="M5.5 10.5v7M10 10.5v7M14 10.5v7M18.5 10.5v7M3 20h18"/>',
@@ -120,30 +123,38 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
     var t = tone(a);
     SHEET[key] = '<div class="mk-sh-head"><span class="mk-ic">' + svg(key) + '</span><h2>' + a.name_kr + '</h2><span class="mk-pill ' + t + '">' + (a.signal_label || '—') + '</span></div>' +
       '<div class="mk-rows">' + detailRows(key, a) + '</div>' +
-      (RULE[key] ? '<p class="mk-rule"><b>신호 기준</b>' + RULE[key] + '</p>' : '');
+      (RULE[key] ? ruleHtml('신호 기준', RULE[key]) : '');
     return '<div class="mk-tile ' + t + '">' +
       '<a class="mk-go" href="' + (LINKS[key] || '#') + '" target="_blank" rel="noopener noreferrer" aria-label="' + a.name_kr + ' 시세 보기"></a>' +
       '<div class="mk-tt"><span class="mk-ic">' + svg(key) + '</span><button class="mk-i" type="button" data-k="' + key + '" aria-label="' + a.name_kr + ' 자세히">i</button></div>' +
       '<div class="mk-nm">' + a.name_kr + '</div><div class="mk-v">' + mainValue(key, a) + '</div></div>';
   }
 
+  // 공포탐욕 색: 0 빨강 → 50 회색 → 100 초록
+  var FG_COL = [[240, 68, 82], [170, 178, 189], [3, 178, 108]];
+  function fgColor(score) {
+    var t = Math.max(0, Math.min(100, score)) / 50, i = t < 1 ? 0 : 1, f = t < 1 ? t : t - 1;
+    var a = FG_COL[i], b = FG_COL[i + 1];
+    return 'rgb(' + [0, 1, 2].map(function (k) { return Math.round(a[k] + (b[k] - a[k]) * f); }).join(',') + ')';
+  }
   // 공포탐욕 반원 게이지
   function gauge(a) {
     var s = Math.max(0, Math.min(100, a.fg_score));
     var ang = Math.PI * (1 - s / 100), cx = 60, cy = 58, R = 46;
     var x = cx + R * Math.cos(ang), y = cy - R * Math.sin(ang);
-    var rating = RATING_KR[a.fg_rating] || '';
+    var rating = RATING_KR[a.fg_rating] || '', col = fgColor(s);
     SHEET.fng = '<div class="mk-sh-head"><span class="mk-ic">' + svg('fng') + '</span><h2>공포탐욕지수</h2><span class="mk-pill off">' + rating + '</span></div>' +
       '<div class="mk-rows">' + row('현재 점수', Math.round(s) + ' / 100') + row('상태', rating) + '</div>' +
-      '<p class="mk-rule"><b>보는 법</b>0~100 점수예요. 20 이하 극단공포 · 21~40 공포 · 41~60 중립 · 61~80 탐욕 · 81 이상 극단탐욕. 나스닥 신호가 이 값으로 정해져요.</p>';
+      ruleHtml('보는 법', ['0~100 점수, 낮을수록 공포', '20 이하 극단공포 · 80 초과 극단탐욕', '나스닥 신호가 이 값으로 정해져요']);
     return '<div class="mk-tile mk-wide">' +
       '<a class="mk-go" href="' + LINKS.fng + '" target="_blank" rel="noopener noreferrer" aria-label="공포탐욕지수 보기"></a>' +
       '<div class="mk-tt"><span class="mk-nm">공포탐욕지수</span><button class="mk-i" type="button" data-k="fng" aria-label="공포탐욕지수 자세히">i</button></div>' +
       '<div class="mk-gauge"><svg viewBox="0 0 120 66" aria-hidden="true">' +
+      '<defs><linearGradient id="mkFg" gradientUnits="userSpaceOnUse" x1="14" y1="0" x2="106" y2="0">' +
+      '<stop offset="0" stop-color="rgb(240,68,82)"/><stop offset=".5" stop-color="rgb(170,178,189)"/><stop offset="1" stop-color="rgb(3,178,108)"/></linearGradient></defs>' +
       '<path d="M14 58A46 46 0 0 1 106 58" class="gt"/>' +
-      '<path d="M14 58A46 46 0 0 1 106 58" class="gv" pathLength="100" stroke-dasharray="' + s.toFixed(1) + ' 100"/>' +
-      '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="5.5" class="gk"/></svg>' +
-      '<div class="mk-gnum"><b>' + Math.round(s) + '</b><span>' + rating + '</span></div></div>' +
+      '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" class="gk" style="stroke:' + col + '"/></svg>' +
+      '<div class="mk-gnum"><b>' + Math.round(s) + '</b><span style="color:' + col + '">' + rating + '</span></div></div>' +
       '<div class="mk-ends"><span>공포</span><span>탐욕</span></div></div>';
   }
   // VIX
@@ -151,7 +162,7 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
     var v = a.vix, st = a.vix_state || '';
     SHEET.vix = '<div class="mk-sh-head"><span class="mk-ic">' + svg('vix') + '</span><h2>VIX 변동성지수</h2><span class="mk-pill off">' + st + '</span></div>' +
       '<div class="mk-rows">' + row('현재', fmt(v, 2)) + row('1년 최고', fmt(a.high_365d, 2)) + row('1년 최저', fmt(a.low_365d, 2)) + '</div>' +
-      '<p class="mk-rule"><b>보는 법</b>시장의 불안감을 숫자로 만든 지수예요. 20 미만 안정 · 20~30 불안 · 30 이상 공포. 참고용 지표라 매수·매도 신호는 없어요.</p>';
+      ruleHtml('보는 법', ['20 미만 안정 · 20~30 불안', '30 이상 공포', '참고용이라 매매 신호는 없어요']);
     return '<div class="mk-tile mk-wide">' +
       '<a class="mk-go" href="' + LINKS.vix + '" target="_blank" rel="noopener noreferrer" aria-label="VIX 시세 보기"></a>' +
       '<div class="mk-tt"><span class="mk-nm">VIX 변동성</span><button class="mk-i" type="button" data-k="vix" aria-label="VIX 자세히">i</button></div>' +
