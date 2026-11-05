@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="공모주 수익관리 노트 그림">
+  <!-- 배경 장식 -->
+  <circle cx="58" cy="44" r="26" fill="#d3e7ff"/>
+  <circle cx="268" cy="150" r="34" fill="#d3e7ff"/>
+  <!-- 뒤에 깔린 노트 -->
+  <g transform="rotate(7 160 92)">
+    <rect x="104" y="26" width="122" height="140" rx="14" fill="#b9d6fb"/>
+  </g>
+  <!-- 앞 노트 -->
+  <g transform="rotate(-4 160 92)">
+    <rect x="96" y="22" width="128" height="144" rx="14" fill="#ffffff" stroke="#c9dcf5" stroke-width="1.5"/>
+    <!-- 상단 띠 -->
+    <path d="M96 36a14 14 0 0 1 14-14h100a14 14 0 0 1 14 14v12H96z" fill="#3182f6"/>
+    <!-- 스프링 -->
+    <g fill="#1b64da">
+      <rect x="116" y="14" width="7" height="18" rx="3.5"/>
+      <rect x="140" y="14" width="7" height="18" rx="3.5"/>
+      <rect x="164" y="14" width="7" height="18" rx="3.5"/>
+      <rect x="188" y="14" width="7" height="18" rx="3.5"/>
+    </g>
+    <!-- 줄 1 (완료) -->
+    <circle cx="116" cy="68" r="8" fill="#3182f6"/>
+    <path d="M112 68l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="132" y="63" width="52" height="5" rx="2.5" fill="#d9e1ea"/>
+    <rect x="132" y="72" width="34" height="4" rx="2" fill="#e8edf3"/>
+    <rect x="192" y="62" width="20" height="14" rx="7" fill="#e3f7ee"/>
+    <path d="M197 71l4-4 3 3 4-4" fill="none" stroke="#03b26c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 줄 2 (완료) -->
+    <circle cx="116" cy="98" r="8" fill="#3182f6"/>
+    <path d="M112 98l3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="132" y="93" width="44" height="5" rx="2.5" fill="#d9e1ea"/>
+    <rect x="132" y="102" width="28" height="4" rx="2" fill="#e8edf3"/>
+    <rect x="192" y="92" width="20" height="14" rx="7" fill="#e3f7ee"/>
+    <path d="M197 101l4-4 3 3 4-4" fill="none" stroke="#03b26c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 줄 3 (대기) -->
+    <circle cx="116" cy="128" r="7.2" fill="#fff" stroke="#b9d0ee" stroke-width="2"/>
+    <rect x="132" y="123" width="56" height="5" rx="2.5" fill="#d9e1ea"/>
+    <rect x="132" y="132" width="36" height="4" rx="2" fill="#e8edf3"/>
+    <!-- 줄 4 (대기) -->
+    <circle cx="116" cy="153" r="0" fill="none"/>
+  </g>
+  <!-- 연필 -->
+  <g transform="translate(236 122) rotate(38)">
+    <rect x="-6" y="-46" width="12" height="62" rx="3" fill="#ffb400"/>
+    <rect x="-6" y="-46" width="12" height="9" rx="3" fill="#f04452"/>
+    <rect x="-6" y="-37" width="12" height="4" fill="#d9e1ea"/>
+    <path d="M-6 16h12l-6 15z" fill="#f6d9ae"/>
+    <path d="M-2.4 24.5h4.8L0 31z" fill="#333d4b"/>
+  </g>
+  <!-- 동전 -->
+  <g>
+    <circle cx="256" cy="52" r="17" fill="#ffd34d"/>
+    <circle cx="256" cy="52" r="12.5" fill="none" stroke="#e5a400" stroke-width="2"/>
+    <text x="256" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="17" fill="#b87d00">₩</text>
+  </g>
+  <!-- 반짝 -->
+  <g fill="#fff">
+    <path d="M70 120l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" opacity=".9"/>
+    <path d="M44 92l1.8 4.2 4.2 1.8-4.2 1.8L44 104l-1.8-4.2L38 98l4.2-1.8z" opacity=".8"/>
+  </g>
+</svg>
