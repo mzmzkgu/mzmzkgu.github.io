@@ -236,6 +236,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 /* ===== 게시판 소개 화면 (공모주 수익관리): 홈과 같은 둥근 카드 스타일 ===== */
 .bd-page { --bd-ac: #3182f6; --bd-ac-d: #1b64da; --bd-tint: #e8f3ff; }
 .bd-page.bd-infinity { --bd-ac: #4f5bd5; --bd-ac-d: #3a45b8; --bd-tint: #eef0ff; }
+.bd-page.bd-fearbuy { --bd-ac: #e5484d; --bd-ac-d: #c62d33; --bd-tint: #fff0f0; }
 .bd-hero {
   background: var(--paper); border-radius: 24px; padding: 10px 10px 22px; margin: 6px 0 14px;
   box-shadow: 0 1px 2px rgba(25, 31, 40, .05), 0 8px 24px rgba(25, 31, 40, .04); }
@@ -318,6 +319,26 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-seg b { font-size: 12px; font-weight: 800; color: var(--bd-ac-d); background: var(--bd-tint); border-radius: 999px; padding: 0 8px; line-height: 1.7; }
 .bd-panel[hidden] { display: none; }
 .bd-panel > .bd-sec:first-child .bd-h { margin-top: 4px; }
+
+/* 텍스트 카드, 매매 규칙 (공포매매 소개) */
+.bd-card { background: var(--paper); border-radius: 20px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(25, 31, 40, .05); font-size: 14.5px; line-height: 1.75; color: var(--sub); }
+.bd-card p { margin: 0 0 10px; }
+.bd-card p:last-child { margin-bottom: 0; }
+.bd-card ol, .bd-card ul { margin: 0; padding-left: 20px; }
+.bd-card li { margin-bottom: 8px; }
+.bd-card li:last-child { margin-bottom: 0; }
+.bd-card b { color: var(--text); font-weight: 700; }
+.bd-note { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 10px 4px 0; }
+.bd-rules { list-style: none; margin: 0; padding: 4px 6px; background: var(--paper); border-radius: 20px; box-shadow: 0 1px 2px rgba(25, 31, 40, .05); }
+.bd-rules li { display: grid; grid-template-columns: 44px 1fr; column-gap: 12px; align-items: start; padding: 12px 10px; }
+.bd-rules li + li { border-top: 1px solid #f0f2f4; }
+.bd-stage { grid-row: 1 / span 2; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 13.5px; font-weight: 800; }
+.bd-stage.buy { background: #fdecee; color: #d92d3a; }
+.bd-stage.sell { background: #e8f3ff; color: #1b64da; }
+.bd-cond { font-size: 14.5px; line-height: 1.55; color: var(--text); padding-top: 4px; }
+.bd-cond b { font-weight: 800; color: var(--bd-ac-d); }
+.bd-wt { margin-top: 4px; font-size: 12.5px; font-weight: 700; color: var(--sub); }
+.bd-wt::before { content: "비중 "; font-weight: 500; color: var(--muted); }
 
 /* ===== 푸터 ===== */
 .site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12px; line-height: 1.9; text-align: center; }

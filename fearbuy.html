@@ -2,73 +2,121 @@
 layout: default
 title: 공포매매
 permalink: /fearbuy/
+bare: true
 description: 공포탐욕지수(F&G)와 VIX로 TQQQ 분할매수(B1~B5)·분할매도(S1~S3) 타이밍을 확인하고, 매매 기록을 내 브라우저에 저장하는 공포매매 도구를 소개합니다.
 ---
-<h1>공포매매</h1>
-<p class="lead">
-  공포탐욕지수(F&amp;G)와 VIX를 보고 TQQQ를 나눠서 사고(B1~B5) 나눠서 파는(S1~S3) 타이밍을 확인하고 기록하는 도구입니다.
-  <a class="tool-link" href="{{ '/buytheDip/' | relative_url }}">공포매매 도구 열기</a>
-</p>
-
-<div class="post-body tool-preview">
-  <p>
-    <strong>공포매매 도구는 이렇게 생겼어요.</strong>
-    대시보드에서는 F&amp;G 게이지, VIX 구간, 나스닥 지수와 TQQQ 가격(전일비), 포지션 요약(평균매수·투자금액·평가금액·평가손익), 진행단계(B1~B5, S1~S3), 자금 흐름 차트를 봅니다.
-    매매기록에서는 단계별 조건과 매수·매도 비중을 확인하고 체결 결과를 입력합니다.
-    옵션에서는 다크 모드, 원화 표시, 회차선택(추가·삭제·변경), 총 시드, 백업, 저장 위치(내 브라우저 또는 내 구글 시트)를 설정합니다.
-    (화면의 매매 기록은 예시이고, 시세는 2026년 11월 6일 기준입니다.)
-  </p>
-  <div class="shots grid2">
-    <p><img src="{{ '/assets/images/buythedip/dashboard.jpg' | relative_url }}" alt="공포매매 대시보드: F&G 게이지와 VIX 구간, 나스닥 지수와 TQQQ 가격, 포지션 요약, B1~B5·S1~S3 진행단계, 자금 흐름 차트" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/buythedip/record-list.jpg' | relative_url }}" alt="공포매매 매매기록: 단계별 매매일, 가격과 수량, 매수비중 표" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/buythedip/record-input.jpg' | relative_url }}" alt="공포매매 매매 입력 화면: 매매일, 가격, 수량을 적으면 환율과 F&G·VIX는 현재값으로 채워짐" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/buythedip/options.jpg' | relative_url }}" alt="공포매매 옵션 화면: 다크 모드, 차트 통화, 회차선택과 추가·삭제·변경 버튼, 총 시드, 백업, 저장 위치" loading="lazy"></p>
+<div class="bd-page bd-fearbuy">
+<section class="bd-hero">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/fearbuy-dip.svg' | relative_url }}" alt="공포매매를 상징하는 저점에서 나눠 사는 차트 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <div class="bd-hero-head">
+      <span class="bd-hero-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 7 4-3 8 8"/><path d="M16 19h5v-5"/></svg></span>
+      <h1>공포매매</h1>
+    </div>
+    <p>공포탐욕지수(F&amp;G)와 VIX를 보고 TQQQ를 나눠서 사고(B1~B5) 나눠서 파는(S1~S3) 타이밍을 확인하고 기록하는 도구입니다.</p>
+    <a class="bd-cta" href="{{ '/buytheDip/' | relative_url }}">공포매매 도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
+</section>
+
+<div class="bd-seg" role="tablist" aria-label="공포매매 안내">
+  <button type="button" role="tab" id="tab-info" aria-controls="bd-info" aria-selected="true" data-t="info" class="on">도구 소개</button>
+  <button type="button" role="tab" id="tab-rules" aria-controls="bd-rules" aria-selected="false" data-t="rules">매매 규칙</button>
+  <button type="button" role="tab" id="tab-guide" aria-controls="bd-guide" aria-selected="false" data-t="guide">사용법</button>
 </div>
 
-<div class="post-body">
-  <h2>매매 규칙</h2>
-  <p>시장이 겁에 질렸을 때 시드를 5번에 나눠 사고, 탐욕이 커졌을 때 3번에 나눠 파는 규칙입니다. 매수는 시드(총 투자 예산)의 비중, 매도는 그때 평가액의 비중입니다.</p>
-  <table>
-    <thead><tr><th>단계</th><th>조건</th><th>비중</th></tr></thead>
-    <tbody>
-      <tr><td>B1</td><td>F&amp;G 25 이하 <b>그리고</b> VIX 20 이상</td><td>시드의 10%</td></tr>
-      <tr><td>B2</td><td>F&amp;G 20 이하 <b>그리고</b> VIX 25 이상</td><td>15%</td></tr>
-      <tr><td>B3</td><td>F&amp;G 15 이하 <b>그리고</b> VIX 30 이상</td><td>20%</td></tr>
-      <tr><td>B4</td><td>F&amp;G 10 이하 <b>그리고</b> VIX 35 이상</td><td>25%</td></tr>
-      <tr><td>B5</td><td>F&amp;G 5 이하 <b>또는</b> VIX 40 이상</td><td>30%</td></tr>
-      <tr><td>S1</td><td>F&amp;G 65 이상 <b>그리고</b> 수익률 10% 이상</td><td>평가액의 20%</td></tr>
-      <tr><td>S2</td><td>F&amp;G 70 이상 <b>그리고</b> 수익률 20% 이상</td><td>30%</td></tr>
-      <tr><td>S3</td><td>F&amp;G 75 이상 (수익률 0% 이상)</td><td>50%</td></tr>
-    </tbody>
-  </table>
+<div class="bd-panel" id="bd-info" role="tabpanel" aria-labelledby="tab-info">
+  <section class="bd-sec">
+    <h2 class="bd-h">도구 특징</h2>
+    <ul class="bd-feats">
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4-5"/></svg></span>
+        <span>F&amp;G 게이지, VIX 구간, 나스닥 지수와 TQQQ 가격(전일비) 확인</span>
+      </li>
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-7"/></svg></span>
+        <span>포지션 요약, B1~B5·S1~S3 진행단계, 자금 흐름 차트</span>
+      </li>
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4V2.5M15 4V2.5M9 11h6M9 15h4"/></svg></span>
+        <span>단계별 조건과 비중 확인, 체결 결과 입력</span>
+      </li>
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
+        <span>다크 모드, 원화 표시, 회차선택, 백업, 저장 위치 설정</span>
+      </li>
+    </ul>
+  </section>
 
-  <h2>이렇게 사용해요</h2>
-  <ol>
-    <li>옵션(톱니 아이콘)의 <b>회차선택</b>에서 <b>추가</b>를 눌러 회차 이름과 총 시드(USD)를 정합니다. 한 번의 매수·매도 사이클을 한 회차로 기록하고, 같은 곳에서 회차를 고르거나 삭제·변경합니다.</li>
-    <li>대시보드에서 F&amp;G와 VIX를 봅니다. 조건을 채운 단계는 테두리가 깜빡이고, 아래 말풍선에 <b>B1 매수 조건 충족</b>처럼 알려줍니다. 이미 입력한 단계는 칸 색이 채워지고, 입력한 단계의 조건이 계속 충족되면 색과 깜빡이는 테두리가 함께 나옵니다.</li>
-    <li>매매기록 탭에서 해당 단계의 <b>입력</b> 버튼을 눌러 매매일, 가격, 수량을 저장합니다. 환율과 F&amp;G·VIX는 현재 값이 자동으로 채워지고, 저장한 뒤에는 <b>수정</b>으로 고칩니다.</li>
-    <li>옵션에서 다크 모드, 차트 통화($·₩), 총 시드를 바꾸고 백업을 내보냅니다. 기록을 내 구글 시트에 저장하고 싶다면 <b>저장 위치</b>에 시트와 연결한 Apps Script 웹앱 주소를 넣으세요.</li>
-  </ol>
+  <section class="bd-sec">
+    <h2 class="bd-h">도구 화면</h2>
+    <div class="bd-shots post-body">
+      <figure><img src="{{ '/assets/images/buythedip/dashboard.jpg' | relative_url }}" alt="공포매매 대시보드: F&amp;G 게이지와 VIX 구간, 나스닥 지수와 TQQQ 가격, 포지션 요약, B1~B5·S1~S3 진행단계, 자금 흐름 차트" loading="lazy"><figcaption>대시보드</figcaption></figure>
+      <figure><img src="{{ '/assets/images/buythedip/record-list.jpg' | relative_url }}" alt="공포매매 매매기록: 단계별 매매일, 가격과 수량, 매수비중 표" loading="lazy"><figcaption>매매기록</figcaption></figure>
+      <figure><img src="{{ '/assets/images/buythedip/record-input.jpg' | relative_url }}" alt="공포매매 매매 입력 화면: 매매일, 가격, 수량을 적으면 환율과 F&amp;G·VIX는 현재값으로 채워짐" loading="lazy"><figcaption>매매 입력</figcaption></figure>
+      <figure><img src="{{ '/assets/images/buythedip/options.jpg' | relative_url }}" alt="공포매매 옵션 화면: 다크 모드, 차트 통화, 회차선택과 추가·삭제·변경 버튼, 총 시드, 백업, 저장 위치" loading="lazy"><figcaption>옵션</figcaption></figure>
+    </div>
+    <p class="bd-note">화면의 매매 기록은 예시이고, 시세는 2026년 11월 6일 기준입니다.</p>
+  </section>
+</div>
 
-  <h2>데이터는 어디에 저장되나요</h2>
-  <p>
-    기본값은 <b>내 브라우저(localStorage)</b>입니다. 입력한 회차와 매매 기록을 서버로 보내지 않아서 로그인이 필요 없지만,
-    브라우저의 사이트 데이터를 지우면 기록도 함께 사라집니다. 가끔 옵션의 <b>백업 내보내기</b>로 JSON 파일을 저장해 두고,
-    다른 기기로 옮길 때는 <b>가져오기</b>를 쓰세요.
-  </p>
-  <p>
-    옵션의 <b>저장 위치</b>에 내 구글 시트의 Apps Script 웹앱 주소를 넣으면 기록을 <b>내 시트에 읽고 쓰는 방식</b>으로 바꿀 수 있습니다.
-    둘 중 하나만 쓰이며, 주소를 다시 비우면 브라우저 기록이 그대로 돌아옵니다. 이 주소를 아는 사람은 시트를 고칠 수 있으니 공유하지 마세요.
-  </p>
-  <p>
-    시세는 마켓시그널에서 쓰는 데이터(F&amp;G·VIX·나스닥 지수·환율)와 TQQQ 가격 서비스에서 불러옵니다.
-  </p>
+<div class="bd-panel" id="bd-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+  <section class="bd-sec">
+    <h2 class="bd-h">매매 규칙</h2>
+    <div class="bd-card">
+      <p>시장이 겁에 질렸을 때 시드를 5번에 나눠 사고, 탐욕이 커졌을 때 3번에 나눠 파는 규칙입니다. 매수는 시드(총 투자 예산)의 비중, 매도는 그때 평가액의 비중입니다.</p>
+    </div>
+  </section>
+  <section class="bd-sec">
+    <h2 class="bd-h">분할매수 (B1~B5)</h2>
+    <ul class="bd-rules">
+    <li><span class="bd-stage buy">B1</span><span class="bd-cond">F&amp;G 25 이하 <b>그리고</b> VIX 20 이상</span><span class="bd-wt">시드의 10%</span></li>
+    <li><span class="bd-stage buy">B2</span><span class="bd-cond">F&amp;G 20 이하 <b>그리고</b> VIX 25 이상</span><span class="bd-wt">시드의 15%</span></li>
+    <li><span class="bd-stage buy">B3</span><span class="bd-cond">F&amp;G 15 이하 <b>그리고</b> VIX 30 이상</span><span class="bd-wt">시드의 20%</span></li>
+    <li><span class="bd-stage buy">B4</span><span class="bd-cond">F&amp;G 10 이하 <b>그리고</b> VIX 35 이상</span><span class="bd-wt">시드의 25%</span></li>
+    <li><span class="bd-stage buy">B5</span><span class="bd-cond">F&amp;G 5 이하 <b>또는</b> VIX 40 이상</span><span class="bd-wt">시드의 30%</span></li>
+    </ul>
+  </section>
+  <section class="bd-sec">
+    <h2 class="bd-h">분할매도 (S1~S3)</h2>
+    <ul class="bd-rules">
+    <li><span class="bd-stage sell">S1</span><span class="bd-cond">F&amp;G 65 이상 <b>그리고</b> 수익률 10% 이상</span><span class="bd-wt">평가액의 20%</span></li>
+    <li><span class="bd-stage sell">S2</span><span class="bd-cond">F&amp;G 70 이상 <b>그리고</b> 수익률 20% 이상</span><span class="bd-wt">평가액의 30%</span></li>
+    <li><span class="bd-stage sell">S3</span><span class="bd-cond">F&amp;G 75 이상 (수익률 0% 이상)</span><span class="bd-wt">평가액의 50%</span></li>
+    </ul>
+  </section>
+</div>
 
-  <h2>참고</h2>
-  <ul>
-    <li>TQQQ는 나스닥100 지수를 하루 단위로 3배 추종하는 레버리지 ETF라 변동성이 매우 큽니다.</li>
-    <li>위 규칙은 도구에 넣어 둔 기준이며 수익을 보장하지 않습니다. 투자 판단과 책임은 본인에게 있습니다.</li>
-    <li>시세는 공개 데이터를 가져온 것이라 지연되거나 틀릴 수 있습니다.</li>
-  </ul>
+<div class="bd-panel" id="bd-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
+  <section class="bd-sec">
+    <h2 class="bd-h">이렇게 사용해요</h2>
+    <div class="bd-card">
+      <ol>
+        <li>옵션(톱니 아이콘)의 <b>회차선택</b>에서 <b>추가</b>를 눌러 회차 이름과 총 시드(USD)를 정합니다. 한 번의 매수·매도 사이클을 한 회차로 기록하고, 같은 곳에서 회차를 고르거나 삭제·변경합니다.</li>
+        <li>대시보드에서 F&amp;G와 VIX를 봅니다. 조건을 채운 단계는 테두리가 깜빡이고, 아래 말풍선에 <b>B1 매수 조건 충족</b>처럼 알려줍니다. 이미 입력한 단계는 칸 색이 채워지고, 입력한 단계의 조건이 계속 충족되면 색과 깜빡이는 테두리가 함께 나옵니다.</li>
+        <li>매매기록 탭에서 해당 단계의 <b>입력</b> 버튼을 눌러 매매일, 가격, 수량을 저장합니다. 환율과 F&amp;G·VIX는 현재 값이 자동으로 채워지고, 저장한 뒤에는 <b>수정</b>으로 고칩니다.</li>
+        <li>옵션에서 다크 모드, 차트 통화($·₩), 총 시드를 바꾸고 백업을 내보냅니다. 기록을 내 구글 시트에 저장하고 싶다면 <b>저장 위치</b>에 시트와 연결한 Apps Script 웹앱 주소를 넣으세요.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="bd-sec">
+    <h2 class="bd-h">데이터는 어디에 저장되나요</h2>
+    <div class="bd-card">
+      <p>기본값은 <b>내 브라우저(localStorage)</b>입니다. 입력한 회차와 매매 기록을 서버로 보내지 않아서 로그인이 필요 없지만, 브라우저의 사이트 데이터를 지우면 기록도 함께 사라집니다. 가끔 옵션의 <b>백업 내보내기</b>로 JSON 파일을 저장해 두고, 다른 기기로 옮길 때는 <b>가져오기</b>를 쓰세요.</p>
+      <p>옵션의 <b>저장 위치</b>에 내 구글 시트의 Apps Script 웹앱 주소를 넣으면 기록을 <b>내 시트에 읽고 쓰는 방식</b>으로 바꿀 수 있습니다. 둘 중 하나만 쓰이며, 주소를 다시 비우면 브라우저 기록이 그대로 돌아옵니다. 이 주소를 아는 사람은 시트를 고칠 수 있으니 공유하지 마세요.</p>
+      <p>시세는 마켓시그널에서 쓰는 데이터(F&amp;G·VIX·나스닥 지수·환율)와 TQQQ 가격 서비스에서 불러옵니다.</p>
+    </div>
+  </section>
+  <section class="bd-sec">
+    <h2 class="bd-h">참고</h2>
+    <div class="bd-card">
+      <ul>
+        <li>TQQQ는 나스닥100 지수를 하루 단위로 3배 추종하는 레버리지 ETF라 변동성이 매우 큽니다.</li>
+        <li>위 규칙은 도구에 넣어 둔 기준이며 수익을 보장하지 않습니다. 투자 판단과 책임은 본인에게 있습니다.</li>
+        <li>시세는 공개 데이터를 가져온 것이라 지연되거나 틀릴 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+{% include bd-tabs-js.html %}
 </div>
