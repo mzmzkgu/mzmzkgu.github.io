@@ -1,8 +1,13 @@
 <script>
 (function () {
-  // 도구 소개 | 관련 글 탭 (자바스크립트가 꺼져 있으면 둘 다 그냥 펼쳐서 보여 줌)
+  // 탭 전환 (자바스크립트가 꺼져 있으면 모든 영역을 그냥 펼쳐서 보여 줌)
   var tabs = document.querySelectorAll('.bd-seg [data-t]');
-  var panels = { info: document.getElementById('bd-info'), posts: document.getElementById('bd-posts') };
+  var panels = {}, def = 'posts';
+  tabs.forEach(function (b) {
+    var t = b.getAttribute('data-t');
+    panels[t] = document.getElementById('bd-' + t);
+    if (b.classList.contains('on')) def = t;
+  });
   function show(t) {
     Object.keys(panels).forEach(function (k) { panels[k].hidden = k !== t; });
     tabs.forEach(function (b) {
@@ -18,6 +23,7 @@
       try { history.replaceState(null, '', '#' + t); } catch (e) {}
     });
   });
-  show(location.hash === '#info' ? 'info' : 'posts');
+  var h = location.hash.replace('#', '');
+  show(panels[h] ? h : def);
 })();
 </script>
