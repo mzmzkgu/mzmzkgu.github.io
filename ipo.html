@@ -2,35 +2,59 @@
 layout: default
 title: 공모주 수익관리
 permalink: /ipo/
+bare: true
 description: 공모주 청약 기록, 일정·증거금 관리, 상장 후 수익 정리와 공모주 투자 공부 기록을 모아둔 공간입니다.
 ---
-<h1>공모주 수익관리</h1>
-<p class="lead">
-  공모주 청약, 환불, 상장, 매도 단계를 관리하고<br>
-  수익금의 체계적인 관리를 도와줍니다.
-  <a class="tool-link" href="{{ '/ipotracker/' | relative_url }}">→ 공모주 관리 도구</a>
-</p>
-
-<div class="tool-feat">
-  <h2 class="feat-title">공모주 관리 도구 특징</h2>
-  <ul>
-    <li>누적 수익, 월별 수익, 종목별 진행상태 확인</li>
-    <li>상장 예정 공모주, 청약기간 알림 등 표시</li>
-    <li><span class="red">'공모주 상장이 겹칠 때'</span> 관리하기 좋아요</li>
-  </ul>
-</div>
-
-<div class="post-body tool-preview">
-  <div class="shots slim">
-    <p><img src="{{ '/assets/images/ipotracker/home.jpg' | relative_url }}" alt="공모주 관리 도구 홈 화면: 올해 누적 수익, 월별 수익, 진행 상태별 금액" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/ipotracker/calendar.jpg' | relative_url }}" alt="공모주 관리 도구 달력 화면: 날짜별 수익과 월 요약" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/ipotracker/list.jpg' | relative_url }}" alt="공모주 관리 도구 거래목록 화면: 종목별 공모가, 배정 수량, 매도가, 수수료" loading="lazy"></p>
+<section class="bd-hero bd-ipo">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/ipo-note.svg' | relative_url }}" alt="공모주 수익관리를 상징하는 노트 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <h1>공모주 수익관리</h1>
+    <p>공모주 청약, 환불, 상장, 매도 단계를 관리하고<br>수익금의 체계적인 관리를 도와줍니다.</p>
+    <a class="bd-cta" href="{{ '/ipotracker/' | relative_url }}">공모주 관리 도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
-</div>
+</section>
 
-<hr class="sec-line">
+<section class="bd-sec">
+  <h2 class="bd-h">도구 특징</h2>
+  <ul class="bd-feats">
+    <li>
+      <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-7"/></svg></span>
+      <span>누적 수익, 월별 수익, 종목별 진행상태 확인</span>
+    </li>
+    <li>
+      <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15z"/><path d="M10 21h4"/></svg></span>
+      <span>상장 예정 공모주, 청약기간 알림 등 표시</span>
+    </li>
+    <li>
+      <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="12" height="12" rx="3"/><rect x="9" y="8" width="11.5" height="11.5" rx="3"/></svg></span>
+      <span><b class="red">'공모주 상장이 겹칠 때'</b> 관리하기 좋아요</span>
+    </li>
+  </ul>
+</section>
 
-<section class="rel-posts">
-  <h2 class="rel-title">관련 글 <span class="rel-count">{{ site.categories.ipo.size }}</span></h2>
-  {% include post-list.html category="ipo" %}
+<section class="bd-sec">
+  <h2 class="bd-h">도구 화면</h2>
+  <div class="bd-shots post-body">
+    <figure><img src="{{ '/assets/images/ipotracker/home.jpg' | relative_url }}" alt="공모주 관리 도구 홈 화면: 올해 누적 수익, 월별 수익, 진행 상태별 금액" loading="lazy"><figcaption>홈</figcaption></figure>
+    <figure><img src="{{ '/assets/images/ipotracker/calendar.jpg' | relative_url }}" alt="공모주 관리 도구 달력 화면: 날짜별 수익과 월 요약" loading="lazy"><figcaption>달력</figcaption></figure>
+    <figure><img src="{{ '/assets/images/ipotracker/list.jpg' | relative_url }}" alt="공모주 관리 도구 거래목록 화면: 종목별 공모가, 배정 수량, 매도가, 수수료" loading="lazy"><figcaption>거래목록</figcaption></figure>
+  </div>
+</section>
+
+<section class="bd-sec">
+  <h2 class="bd-h bd-h-lg">관련 글 <span class="bd-count">{{ site.categories.ipo.size }}</span></h2>
+  <ul class="bd-list">
+    {% for post in site.categories.ipo %}
+    {% assign head = post.title | split: '] ' | first %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <span class="bd-t">{% if post.title contains '] ' and head contains '[' %}<em class="bd-badge">{{ head | remove: '[' }}</em>{{ post.title | remove_first: head | remove_first: '] ' }}{% else %}{{ post.title }}{% endif %}</span>
+        <span class="bd-m"><time>{{ post.date | date: "%Y.%m.%d" }}</time>{% for t in post.tags %}<i>#{{ t }}</i>{% endfor %}</span>
+        <svg class="bd-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </li>
+    {% else %}
+    <li class="bd-empty">아직 올라온 글이 없습니다.</li>
+    {% endfor %}
+  </ul>
 </section>
