@@ -55,21 +55,9 @@ description: 무한매수법의 원리, 회차별 매수 기록과 평단 관리
 
 <div class="bd-panel" id="bd-posts" role="tabpanel" aria-labelledby="tab-posts">
   <h2 class="sr-only">관련 글</h2>
-  <ul class="bd-list">
-    {% for post in site.categories.infinity %}
-    {% assign head = post.title | split: '] ' | first %}
-    <li>
-      <a href="{{ post.url | relative_url }}">
-        <span class="bd-t">{% if post.title contains '] ' and head contains '[' %}<em class="bd-badge">{{ head | remove_first: '[' | replace: '][', ' · ' }}</em>{{ post.title | remove_first: head | remove_first: '] ' }}{% else %}{{ post.title }}{% endif %}</span>
-        <span class="bd-m"><time>{{ post.date | date: "%Y.%m.%d" }}</time>{% for t in post.tags %}<i>#{{ t }}</i>{% endfor %}</span>
-        <svg class="bd-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-    </li>
-    {% else %}
-    <li class="bd-empty">아직 올라온 글이 없습니다.</li>
-    {% endfor %}
-  </ul>
+  {% include bd-board-list.html list=site.categories.infinity %}
 </div>
 
 {% include bd-tabs-js.html %}
+{% include bd-list-tools-js.html %}
 </div>

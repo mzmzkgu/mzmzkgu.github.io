@@ -342,6 +342,9 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-wt { margin-top: 4px; font-size: 12.5px; font-weight: 700; color: var(--sub); }
 .bd-wt::before { content: "비중 "; font-weight: 500; color: var(--muted); }
 
+.bd-title { font-size: 24px; margin: 4px 4px 6px; letter-spacing: -.03em; }
+.bd-title .bd-count { font-size: 14px; }
+.bd-lead { font-size: 14px; color: var(--sub); line-height: 1.7; margin: 0 4px 14px; }
 /* 목록 도구: 태그 필터, 페이지 나누기 */
 .bd-chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px; margin: 0 -2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .bd-chips::-webkit-scrollbar { display: none; }

@@ -21,7 +21,8 @@
   var bar = document.createElement('div'); bar.className = 'bd-chips';
   var status = document.createElement('p'); status.className = 'bd-status';
   var pager = document.createElement('nav'); pager.className = 'bd-pager'; pager.setAttribute('aria-label', '페이지');
-  if (tags.length) list.parentNode.insertBefore(bar, list);
+  var useFilter = list.hasAttribute('data-filter');
+  if (useFilter && tags.length) list.parentNode.insertBefore(bar, list);
   list.parentNode.insertBefore(status, list);
   list.parentNode.appendChild(pager);
 
@@ -89,7 +90,7 @@
     status.textContent = state.tag ? '#' + state.tag + ' · ' + f.length + '개' : '';
     status.hidden = !state.tag;
     drawChips(); drawPager(pages); saveHash();
-    if (scroll) { var h = document.querySelector('.bd-h-lg'); if (h && h.scrollIntoView) h.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (scroll) { var h = document.querySelector('.bd-h-lg') || document.querySelector('.bd-seg') || document.querySelector('.bd-title') || list; if (h && h.scrollIntoView) h.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
   bar.addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
