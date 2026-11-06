@@ -278,6 +278,16 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-hero-head { display: block; }
 .bd-hero-ico { display: none; }
 @media (max-width: 640px) {
+  /* 폰: 도구 특징 세 줄을 카드 한 장으로 묶어 높이를 줄임 */
+  .bd-feats { gap: 0; background: var(--paper); border-radius: 20px; padding: 2px 4px; box-shadow: 0 1px 2px rgba(25, 31, 40, .05); }
+  .bd-feats li { background: none; box-shadow: none; border-radius: 0; padding: 11px 12px; gap: 11px; font-size: 14px; }
+  .bd-feats li + li { border-top: 1px solid #f0f2f4; }
+  .bd-ico { width: 32px; height: 32px; border-radius: 10px; }
+  .bd-ico svg { width: 18px; height: 18px; }
+  .bd-h { margin-top: 16px; }
+  .bd-h-lg { margin-top: 22px; }
+}
+@media (max-width: 640px) {
   /* 폰: 큰 그림 없이 작게 (한눈에 특징 카드까지 보이도록) */
   .bd-hero { background: var(--bd-tint); box-shadow: none; padding: 18px 18px 18px; margin: 4px 0 10px; }
   .bd-hero-art { display: none; }
