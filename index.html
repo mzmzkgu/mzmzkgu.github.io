@@ -1,38 +1,66 @@
 ---
 layout: default
 title: 홈
-description: 소액 재테크를 관리하기 위한 공모주 수익관리, 무한매수법 관리 도구와 투자방법·관리방법 글을 모아둔 사이트입니다.
+description: 소액 재테크를 관리하기 위한 공모주 수익관리, 무한매수법, 공포매매 관리 도구와 투자방법·관리방법 글을 모아둔 사이트입니다.
 ---
 <h1 class="sr-only">소소한 재테크 작업실 - 소액 재테크 관리 도구</h1>
 
-<section class="home-section">
-  <h2 class="section-title">소개</h2>
-  <div class="intro-card">
-    <p>소액 재테크를 관리하기 위한 웹사이트입니다.</p>
-    <p>원래는 제가 편하게 쓰려고 만든 건데, 공유해봐도 좋을 것 같아 올려봅니다.</p>
-    <p>투자방법, 관리방법 등을 글로 남겨놨으니 참고해서 사용하세요! 성투!! 🙌</p>
-  </div>
-</section>
+<div class="hm-grid">
+  <article class="hm-card hm-ipo">
+    <div class="hm-art"><img src="{{ '/assets/images/home/ipo-note.svg' | relative_url }}" alt="공모주 수익관리를 상징하는 노트 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">공모주 수익 관리</h2>
+      <p class="hm-desc">청약, 환불, 원금, 수익을 체계적으로 기록합니다</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/ipotracker/' | relative_url }}">도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="hm-posts" href="{{ '/ipo/' | relative_url }}">관련 글</a>
+      </div>
+    </div>
+  </article>
 
-<section class="home-section">
-  <h2 class="section-title">컨텐츠</h2>
-  <div class="apps">
-    <div class="app-card">
-      <div class="head"><span class="icon">📈</span> <span class="name">공모주 수익관리</span></div>
-      <div class="desc">청약·환불·상장 일정과 수익을 한곳에서 기록하고 확인하는 도구</div>
-      <div class="actions">
-        <a class="btn" href="{{ '/ipotracker/' | relative_url }}">도구 열기</a>
-        <a class="more" href="{{ '/ipo/' | relative_url }}">관련 글 보기 →</a>
+  <article class="hm-card hm-infinity">
+    <div class="hm-art"><img src="{{ '/assets/images/home/infinity-chart.svg' | relative_url }}" alt="무한매수법을 상징하는 TQQQ 차트 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">무한매수법 기록 관리</h2>
+      <p class="hm-desc">TQQQ, SOXL 무한매수법 방식으로 기록합니다</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/infinityBuy/' | relative_url }}">도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="hm-posts" href="{{ '/infinity/' | relative_url }}">관련 글</a>
       </div>
     </div>
-    <div class="app-card">
-      <div class="head"><span class="icon">♾️</span> <span class="name">무한매수법</span></div>
-      <div class="desc">무한매수법의 회차별 매수·매도 기록과 평단을 관리하는 도구</div>
-      <div class="actions">
-        <a class="btn" href="{{ '/infinityBuy/' | relative_url }}">도구 열기</a>
-        <a class="more" href="{{ '/infinity/' | relative_url }}">관련 글 보기 →</a>
+  </article>
+  <article class="hm-card hm-fearbuy">
+    <div class="hm-art"><img src="{{ '/assets/images/home/fearbuy-dip.svg' | relative_url }}" alt="공포매매를 상징하는 저점에서 나눠 사는 차트 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">공포매매 가이드</h2>
+      <p class="hm-desc">공포탐욕·VIX로 TQQQ 분할 매수·매도 확인</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/buytheDip/' | relative_url }}">도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="hm-posts" href="{{ '/fearbuy/' | relative_url }}">소개</a>
       </div>
     </div>
-  </div>
-  <p class="home-note">두 도구 모두 로그인 없이 쓸 수 있고, 입력한 데이터는 서버로 보내지 않고 내 브라우저에서만 처리됩니다.</p>
-</section>
+  </article>
+  <article class="hm-card hm-market">
+    <div class="hm-art"><img src="{{ '/assets/images/home/market-signal.svg' | relative_url }}" alt="마켓시그널을 상징하는 게이지와 신호 카드 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">마켓시그널 체크</h2>
+      <p class="hm-desc">공포탐욕·VIX·자산별 매수/매도 신호 확인</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/market/' | relative_url }}">시그널 보기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </article>
+
+  <article class="hm-card hm-study">
+    <div class="hm-art"><img src="{{ '/assets/images/home/study-book.svg' | relative_url }}" alt="공부요약을 상징하는 펼친 책과 전구 그림" width="320" height="180"></div>
+    <div class="hm-body">
+      <h2 class="hm-name">공부 요약</h2>
+      <p class="hm-desc">매일 좋은 경제 글을 읽기 쉽게 요약해뒀습니다</p>
+      <div class="hm-actions">
+        <a class="hm-open" href="{{ '/study/' | relative_url }}">글 보기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<p class="hm-note"><span>이 웹사이트에는 로그인이 <b class="red">필요없습니다.</b></span><span>(입력 데이터는 사용자의 <b class="red">스마트폰, PC에서만</b> 저장·처리됩니다)</span></p>

@@ -47,10 +47,9 @@
       <nav class="nav">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>홈</a>
         {% for s in site.data.sections %}
+        {% if s.key == 'study' %}<a href="{{ '/fearbuy/' | relative_url }}" {% if page.url == '/fearbuy/' %}class="active"{% endif %}>공포매매</a><a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>{% endif %}
         <a href="{{ s.url | relative_url }}" {% if page.url == s.url or page.categories contains s.key %}class="active"{% endif %}>{{ s.nav | default: s.title }}</a>
         {% endfor %}
-        <a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>
-        <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}class="active"{% endif %}>문의</a>
       </nav>
     </div>
   </header>
@@ -75,7 +74,8 @@
         <a href="{{ '/privacy/' | relative_url }}">개인정보 처리방침</a>
         <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
       </div>
-      <div>© {{ 'now' | date: '%Y' }} {{ site.title }}. 이 사이트의 투자 관련 내용은 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+      <div class="copy">© {{ 'now' | date: '%Y' }} {{ site.title }}</div>
+      <div class="notice-line">이 사이트의 내용은 정보 제공 목적이며 투자 권유가 아닙니다.</div>
     </div>
   </footer>
   <script>
