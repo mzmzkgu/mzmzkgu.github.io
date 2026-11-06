@@ -2,11 +2,36 @@
 layout: default
 title: 공부요약
 permalink: /study/
+bare: true
 description: 매일 읽은 글 한 편을 짧게 요약하고 내 생각을 덧붙여 기록하는 공부요약 공간입니다.
 ---
-<h1>공부요약</h1>
-<p class="lead">
-  매일 글 한 편을 읽고 핵심만 짧게 요약해서 올립니다.
-  모든 글은 3줄 요약으로 시작하고, 원문 출처와 제 생각을 함께 적습니다.
-</p>
-{% include post-list.html category="study" %}
+<div class="bd-page bd-study">
+<section class="bd-hero">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/study-book.svg' | relative_url }}" alt="공부요약을 상징하는 펼친 책과 전구 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <div class="bd-hero-head">
+      <span class="bd-hero-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13C17 4 14 4.5 12 6z"/><path d="M12 6v13"/></svg></span>
+      <h1>공부요약</h1>
+    </div>
+    <p>매일 글 한 편을 읽고 핵심만 짧게 요약해서 올립니다.<br>모든 글은 3줄 요약으로 시작하고, 원문 출처와 제 생각을 함께 적습니다.</p>
+  </div>
+</section>
+
+<section class="bd-sec">
+  <h2 class="bd-h bd-h-lg">요약 글 <span class="bd-count">{{ site.categories.study.size }}</span></h2>
+  <ul class="bd-list">
+    {% for post in site.categories.study %}
+    {% assign head = post.title | split: '] ' | first %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <span class="bd-t">{% if post.title contains '] ' and head contains '[' %}<em class="bd-badge">{{ head | remove_first: '[' | replace: '][', ' · ' }}</em>{{ post.title | remove_first: head | remove_first: '] ' }}{% else %}{{ post.title }}{% endif %}</span>
+        <span class="bd-m"><time>{{ post.date | date: "%Y.%m.%d" }}</time>{% for t in post.tags %}<i>#{{ t }}</i>{% endfor %}</span>
+        <svg class="bd-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </li>
+    {% else %}
+    <li class="bd-empty">아직 올라온 글이 없습니다.</li>
+    {% endfor %}
+  </ul>
+</section>
+</div>
