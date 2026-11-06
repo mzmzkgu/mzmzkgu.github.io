@@ -6,21 +6,31 @@ description: 공모주 청약 기록, 일정·증거금 관리, 상장 후 수�
 ---
 <h1>공모주 수익관리</h1>
 <p class="lead">
-  공모주 청약부터 환불, 상장, 매도까지의 기록과 수익 정리, 공부한 내용을 올립니다.
-  기록에 쓰는 <a class="tool-link" href="{{ '/ipotracker/' | relative_url }}">공모주 관리 도구</a>도 함께 사용해 보세요.
+  공모주 청약, 환불, 상장, 매도 단계를 관리하고<br>
+  수익금의 체계적인 관리를 도와줍니다.
+  <a class="tool-link" href="{{ '/ipotracker/' | relative_url }}">→ 공모주 관리 도구</a>
 </p>
 
+<div class="tool-feat">
+  <h2 class="feat-title">공모주 관리 도구 특징</h2>
+  <ul>
+    <li>누적 수익, 월별 수익, 종목별 진행상태 확인</li>
+    <li>상장 예정 공모주, 청약기간 알림 등 표시</li>
+    <li><span class="red">'공모주 상장이 겹칠 때'</span> 관리하기 좋아요</li>
+  </ul>
+</div>
+
 <div class="post-body tool-preview">
-  <p>
-    <strong>공모주 관리 도구는 이렇게 생겼어요.</strong>
-    홈에서는 올해 누적 수익과 월별 수익, 진행 상태별 금액을 보고,
-    달력에서는 날짜별 수익과 월 요약을, 거래목록에서는 종목별 공모가·배정 수량·매도가·수수료를 확인합니다.
-  </p>
-  <div class="shots">
+  <div class="shots slim">
     <p><img src="{{ '/assets/images/ipotracker/home.jpg' | relative_url }}" alt="공모주 관리 도구 홈 화면: 올해 누적 수익, 월별 수익, 진행 상태별 금액" loading="lazy"></p>
     <p><img src="{{ '/assets/images/ipotracker/calendar.jpg' | relative_url }}" alt="공모주 관리 도구 달력 화면: 날짜별 수익과 월 요약" loading="lazy"></p>
     <p><img src="{{ '/assets/images/ipotracker/list.jpg' | relative_url }}" alt="공모주 관리 도구 거래목록 화면: 종목별 공모가, 배정 수량, 매도가, 수수료" loading="lazy"></p>
   </div>
 </div>
 
-{% include post-list.html category="ipo" %}
+<hr class="sec-line">
+
+<section class="rel-posts">
+  <h2 class="rel-title">관련 글 <span class="rel-count">{{ site.categories.ipo.size }}</span></h2>
+  {% include post-list.html category="ipo" %}
+</section>

@@ -233,6 +233,30 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 }
 .tool-link:hover { background: #d4efe3; color: var(--accent-ink); text-decoration: none; }
 
+/* ===== 공모주 수익관리 소개 화면: 도구 특징, 경계선, 관련 글 ===== */
+.tool-feat { margin: 4px 0 6px; }
+.tool-feat .feat-title { font-size: 16px; margin: 18px 0 8px; display: flex; align-items: center; gap: 8px; }
+.tool-feat .feat-title::before { content: ""; width: 9px; height: 9px; border-radius: 2px; background: var(--accent); flex: none; }
+.tool-feat ul { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.8; color: var(--sub); }
+.tool-feat li { margin-bottom: 2px; padding-left: 2px; }
+.tool-feat li::marker { color: var(--accent); }
+.tool-feat .red { color: #e5372b; font-weight: 700; }
+.post-body .shots.slim p { flex-basis: 60%; }
+@media (min-width: 561px) {
+  .post-body .shots.slim { max-width: 600px; }
+  .post-body .shots.slim p { flex: 1 1 0; }
+}
+.sec-line { border: 0; height: 1px; background: var(--line); margin: 30px 0 26px; position: relative; overflow: visible; }
+.sec-line::after { content: ""; position: absolute; left: 0; top: -1px; width: 44px; height: 3px; border-radius: 2px; background: var(--accent); }
+.rel-title { font-size: 23px; margin: 0 0 6px; font-weight: 800; letter-spacing: -.02em; }
+.rel-count { font-size: 14px; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); border-radius: 999px; padding: 1px 10px; vertical-align: 3px; margin-left: 4px; }
+.rel-posts .post-list { margin-top: 10px; }
+.rel-posts .post-list li { padding: 13px 0; }
+.rel-posts .post-list li:first-child { border-top: none; padding-top: 6px; }
+.rel-posts .post-list .title { font-size: 14.5px; font-weight: 600; margin: 1px 0 5px; line-height: 1.55; }
+.rel-posts .post-list .date { font-size: 12px; }
+.rel-posts .post-list .tag { font-size: 11.5px; padding: 0 8px; line-height: 1.8; }
+
 /* ===== 푸터 ===== */
 .site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12px; line-height: 1.9; text-align: center; }
 .site-footer .links { display: flex; justify-content: center; align-items: center; margin-bottom: 6px; font-size: 12.5px; }
