@@ -47,7 +47,7 @@
       <nav class="nav">
         <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>홈</a>
         {% for s in site.data.sections %}
-        {% if s.key == 'study' %}<a href="{{ '/jupjup/' | relative_url }}" {% if page.url == '/jupjup/' %}class="active"{% endif %}>줍줍매매</a><a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>{% endif %}
+        {% if s.key == 'study' %}<a href="{{ '/fearbuy/' | relative_url }}" {% if page.url == '/fearbuy/' %}class="active"{% endif %}>공포매매</a><a href="{{ '/market/' | relative_url }}" {% if page.url == '/market/' %}class="active"{% endif %}>마켓시그널</a>{% endif %}
         <a href="{{ s.url | relative_url }}" {% if page.url == s.url or page.categories contains s.key %}class="active"{% endif %}>{{ s.nav | default: s.title }}</a>
         {% endfor %}
       </nav>
