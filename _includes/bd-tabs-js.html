@@ -1,0 +1,23 @@
+<script>
+(function () {
+  // 도구 소개 | 관련 글 탭 (자바스크립트가 꺼져 있으면 둘 다 그냥 펼쳐서 보여 줌)
+  var tabs = document.querySelectorAll('.bd-seg [data-t]');
+  var panels = { info: document.getElementById('bd-info'), posts: document.getElementById('bd-posts') };
+  function show(t) {
+    Object.keys(panels).forEach(function (k) { panels[k].hidden = k !== t; });
+    tabs.forEach(function (b) {
+      var on = b.getAttribute('data-t') === t;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.getAttribute('data-t');
+      show(t);
+      try { history.replaceState(null, '', '#' + t); } catch (e) {}
+    });
+  });
+  show(location.hash === '#info' ? 'info' : 'posts');
+})();
+</script>

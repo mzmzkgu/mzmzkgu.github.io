@@ -2,27 +2,74 @@
 layout: default
 title: 무한매수법
 permalink: /infinity/
+bare: true
 description: 무한매수법의 원리, 회차별 매수 기록과 평단 관리, 시뮬레이션과 운영 경험을 모아둔 공간입니다.
 ---
-<h1>무한매수법</h1>
-<p class="lead">
-  무한매수법의 원리와 운영 기록, 시뮬레이션과 시행착오를 올립니다.
-  기록에 쓰는 <a class="tool-link" href="{{ '/infinityBuy/' | relative_url }}">무한매수 관리 도구</a>도 함께 사용해 보세요.
-</p>
-
-<div class="post-body tool-preview">
-  <p>
-    <strong>무한매수 관리 도구는 이렇게 생겼어요.</strong>
-    대시보드에서는 진행률, 평균매수가, 매수수량, 매수원금, 총 수익과 차트를 보고,
-    매매기록에서는 그날의 LOC 평단가·고점가·매도가격을 확인해 체결 결과를 입력하고 기록을 표로 확인합니다.
-    옵션에서는 다크 모드, 원화 표시, JSON 백업·복원 등을 설정합니다.
-  </p>
-  <div class="shots grid2">
-    <p><img src="{{ '/assets/images/infinitybuy/dashboard.jpg' | relative_url }}" alt="무한매수 관리 도구 대시보드: 진행률, 평균매수가, 매수수량, 매수원금, 총 수익과 차트" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/infinitybuy/record-input.jpg' | relative_url }}" alt="무한매수 관리 도구 매매기록 입력 화면: LOC 평단가·고점가·매도가격 자동 계산과 체결 수량 입력" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/infinitybuy/record-list.jpg' | relative_url }}" alt="무한매수 관리 도구 매매기록 목록: 날짜, 회차, 평단, 고점, 메모" loading="lazy"></p>
-    <p><img src="{{ '/assets/images/infinitybuy/options.jpg' | relative_url }}" alt="무한매수 관리 도구 옵션 화면: 다크 모드, 원화 표시, 계좌 관리, JSON 백업·복원" loading="lazy"></p>
+<div class="bd-page bd-infinity">
+<section class="bd-hero">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/infinity-chart.svg' | relative_url }}" alt="무한매수법을 상징하는 TQQQ 차트 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <div class="bd-hero-head">
+      <span class="bd-hero-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4zm0 0c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/></svg></span>
+      <h1>무한매수법</h1>
+    </div>
+    <p>무한매수법의 원리와 운영 기록,<br>시뮬레이션과 시행착오를 올립니다.</p>
+    <a class="bd-cta" href="{{ '/infinityBuy/' | relative_url }}">무한매수 관리 도구 열기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
+</section>
+
+<div class="bd-seg" role="tablist" aria-label="무한매수법 보기 방식">
+  <button type="button" role="tab" id="tab-info" aria-controls="bd-info" aria-selected="false" data-t="info">도구 소개</button>
+  <button type="button" role="tab" id="tab-posts" aria-controls="bd-posts" aria-selected="true" data-t="posts" class="on">관련 글 <b>{{ site.categories.infinity.size }}</b></button>
 </div>
 
-{% include post-list.html category="infinity" %}
+<div class="bd-panel" id="bd-info" role="tabpanel" aria-labelledby="tab-info">
+  <section class="bd-sec">
+    <h2 class="bd-h">도구 특징</h2>
+    <ul class="bd-feats">
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-7"/></svg></span>
+        <span>진행률, 평균매수가, 총 수익, 차트를 한눈에 확인</span>
+      </li>
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4V2.5M15 4V2.5M9 11h6M9 15h4"/></svg></span>
+        <span>LOC 평단가·고점가·매도가격 확인, 체결 결과 입력</span>
+      </li>
+      <li>
+        <span class="bd-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span>
+        <span>다크 모드, 원화 표시, JSON 백업·복원 설정</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bd-sec">
+    <h2 class="bd-h">도구 화면</h2>
+    <div class="bd-shots post-body">
+      <figure><img src="{{ '/assets/images/infinitybuy/dashboard.jpg' | relative_url }}" alt="무한매수 관리 도구 대시보드: 진행률, 평균매수가, 매수수량, 매수원금, 총 수익과 차트" loading="lazy"><figcaption>대시보드</figcaption></figure>
+      <figure><img src="{{ '/assets/images/infinitybuy/record-input.jpg' | relative_url }}" alt="무한매수 관리 도구 매매기록 입력 화면: LOC 평단가·고점가·매도가격 자동 계산과 체결 수량 입력" loading="lazy"><figcaption>매매기록 입력</figcaption></figure>
+      <figure><img src="{{ '/assets/images/infinitybuy/record-list.jpg' | relative_url }}" alt="무한매수 관리 도구 매매기록 목록: 날짜, 회차, 평단, 고점, 메모" loading="lazy"><figcaption>매매기록 목록</figcaption></figure>
+      <figure><img src="{{ '/assets/images/infinitybuy/options.jpg' | relative_url }}" alt="무한매수 관리 도구 옵션 화면: 다크 모드, 원화 표시, 계좌 관리, JSON 백업·복원" loading="lazy"><figcaption>옵션</figcaption></figure>
+    </div>
+  </section>
+</div>
+
+<div class="bd-panel" id="bd-posts" role="tabpanel" aria-labelledby="tab-posts">
+  <h2 class="sr-only">관련 글</h2>
+  <ul class="bd-list">
+    {% for post in site.categories.infinity %}
+    {% assign head = post.title | split: '] ' | first %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <span class="bd-t">{% if post.title contains '] ' and head contains '[' %}<em class="bd-badge">{{ head | remove: '[' }}</em>{{ post.title | remove_first: head | remove_first: '] ' }}{% else %}{{ post.title }}{% endif %}</span>
+        <span class="bd-m"><time>{{ post.date | date: "%Y.%m.%d" }}</time>{% for t in post.tags %}<i>#{{ t }}</i>{% endfor %}</span>
+        <svg class="bd-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </li>
+    {% else %}
+    <li class="bd-empty">아직 올라온 글이 없습니다.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% include bd-tabs-js.html %}
+</div>
