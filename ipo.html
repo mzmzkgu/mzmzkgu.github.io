@@ -5,6 +5,7 @@ permalink: /ipo/
 bare: true
 description: 공모주 청약 기록, 일정·증거금 관리, 상장 후 수익 정리와 공모주 투자 공부 기록을 모아둔 공간입니다.
 ---
+<div class="bd-page">
 <section class="bd-hero bd-ipo">
   <div class="bd-hero-art"><img src="{{ '/assets/images/home/ipo-note.svg' | relative_url }}" alt="공모주 수익관리를 상징하는 노트 그림" width="320" height="180"></div>
   <div class="bd-hero-text">
@@ -70,26 +71,5 @@ description: 공모주 청약 기록, 일정·증거금 관리, 상장 후 수�
   </ul>
 </div>
 
-<script>
-(function () {
-  // 도구 소개 | 관련 글 탭 (자바스크립트가 꺼져 있으면 둘 다 그냥 펼쳐서 보여 줌)
-  var tabs = document.querySelectorAll('.bd-seg [data-t]');
-  var panels = { info: document.getElementById('bd-info'), posts: document.getElementById('bd-posts') };
-  function show(t) {
-    Object.keys(panels).forEach(function (k) { panels[k].hidden = k !== t; });
-    tabs.forEach(function (b) {
-      var on = b.getAttribute('data-t') === t;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-  }
-  tabs.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var t = b.getAttribute('data-t');
-      show(t);
-      try { history.replaceState(null, '', '#' + t); } catch (e) {}
-    });
-  });
-  show(location.hash === '#info' ? 'info' : 'posts');
-})();
-</script>
+{% include bd-tabs-js.html %}
+</div>
