@@ -309,6 +309,14 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
   .bd-shots figure { flex: 1 1 0; min-width: 0; max-width: 220px; }
 }
 
+/* 탭: 도구 소개 | 관련 글 */
+.bd-seg { display: flex; background: #e6eaee; border-radius: 16px; padding: 4px; margin: 0 0 14px; max-width: 460px; }
+.bd-seg button { flex: 1; height: 42px; border: 0; background: none; border-radius: 12px; font: inherit; font-size: 14.5px; font-weight: 700; color: #6b7684; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background .15s, color .15s; -webkit-tap-highlight-color: transparent; }
+.bd-seg button.on { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(25, 31, 40, .12); }
+.bd-seg b { font-size: 12px; font-weight: 800; color: #1b64da; background: #e8f3ff; border-radius: 999px; padding: 0 8px; line-height: 1.7; }
+.bd-panel[hidden] { display: none; }
+.bd-panel > .bd-sec:first-child .bd-h { margin-top: 4px; }
+
 /* ===== 푸터 ===== */
 .site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12px; line-height: 1.9; text-align: center; }
 .site-footer .links { display: flex; justify-content: center; align-items: center; margin-bottom: 6px; font-size: 12.5px; }
