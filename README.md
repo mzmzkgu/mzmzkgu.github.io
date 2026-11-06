@@ -1,6 +1,6 @@
 # mzmzkgu.github.io
 
-공모주·무한매수 투자 기록 도구와 사용 가이드, 투자 공부 기록을 올리는 투자 전용 Jekyll 사이트 (GitHub Pages).
+공모주·무한매수·줍줍매매 투자 기록 도구와 사용 가이드, 투자 공부 기록을 올리는 투자 전용 Jekyll 사이트 (GitHub Pages).
 어두운 배경 + 주황 포인트의 터미널 느낌 디자인.
 
 ## 구성
@@ -10,11 +10,12 @@
 - `_posts/` — 글 (`.md`만 추가하면 자동 반영)
 - `CLAUDE.md` — 글 작성 규칙(3줄 요약 등), `tools/check_tldr.py` — 3줄 요약 규칙 검사 (둘 다 사이트에는 배포되지 않음)
 - `contact.md` / `privacy.md` — 소개·문의(합쳐진 페이지) / 개인정보 처리방침 (`about.html`은 `/about/` → `/contact/` 이동용)
+- `jupjup.html`(`/jupjup/`) — 줍줍매매 탭 (도구 소개, 스크린샷, 매매 규칙 표). 도구 본체는 별도 저장소 `mzmzkgu/buytheDip`(`/buytheDip/`)
 - `market.html` — 마켓시그널 탭 (`/marketTraffic/signals.json`을 읽어 카드로 표시)
 - `_layouts/` — 공통 레이아웃(`default`, `post`), `assets/style.css` — 스타일
 - `ads.txt` — Google AdSense 인증 파일 (루트에 있어야 함, 수정 금지)
 - `index_old.html` — 이전 "프로젝트 데스크톱" 홈 백업 (사이트에는 배포되지 않음)
-- 앱들(`/ipotracker`, `/infinityBuy`)은 각각 별도 저장소의 프로젝트 페이지
+- 앱들(`/ipotracker`, `/infinityBuy`, `/buytheDip`)은 각각 별도 저장소의 프로젝트 페이지
 
 ## 글 올리는 법
 `_posts/YYYY-MM-DD-영문제목.md` 파일을 추가하면 끝.

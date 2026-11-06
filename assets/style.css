@@ -83,6 +83,7 @@ p { margin: 0 0 14px; }
   display: flex; flex-direction: column; container-type: inline-size;
 }
 .hm-infinity { --hm-ac: #4f5bd5; --hm-ac-d: #3a45b8; --hm-tint: #eef0ff; }
+.hm-jupjup { --hm-ac: #e5484d; --hm-ac-d: #c62d33; --hm-tint: #fff0f0; }
 .hm-market { --hm-ac: #12a374; --hm-ac-d: #0d7f5a; --hm-tint: #e3f7ee; }
 .hm-study { --hm-ac: #e07b00; --hm-ac-d: #b86100; --hm-tint: #fff1dc; }
 .hm-art {
