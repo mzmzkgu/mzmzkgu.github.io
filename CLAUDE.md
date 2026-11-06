@@ -103,6 +103,7 @@ GitHub Pages(Jekyll)로 운영하는 투자 기록 사이트다. 게시판은 `i
 - 새 게시판을 만들 때는 `_data/sections.yml`에 한 줄과 목록 페이지 하나를 추가하고, 360px 폰에서 상단 메뉴가 한 줄에 들어가는지 확인한다.
 - 사이트 하단(`_layouts/default.html`의 `<footer>`)은 가운데 정렬이고 `전체 글 | 문의 | 개인정보 처리방침 | RSS` / `© 연도 사이트이름` / `이 사이트의 내용은 정보 제공 목적이며 투자 권유가 아닙니다.` 세 줄이다. 각 줄은 폰(320~390px)에서 한 줄에 들어가야 한다.
 - 스타일은 `assets/style.css` 하나다. **CSS 주석(`/* */`)을 열면 반드시 닫는다.** (닫지 않으면 아래 스타일이 통째로 무시된다.)
+- **브라우저 탭 제목(`<title>`), 즐겨찾기 이름, 홈 화면 아이콘 이름(`manifest.json`의 `name`·`short_name`, `apple-mobile-web-app-title`)은 모든 페이지에서 항상 `소소한 재테크 작업실`이다.** (`_config.yml`의 `title`을 쓴다. 글마다 제목을 붙이지 않는다. 공유 미리보기용 `og:title`만 페이지별 제목이다.)
 - `_layouts/default.html`의 `<head>`에는 애드센스 코드, `google-adsense-account`, 구글·네이버 소유권 확인 태그가 들어 있다. **지우지 않는다.**
 - `ads.txt`는 저장소 루트에 있어야 한다.
 
