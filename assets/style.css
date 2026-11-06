@@ -244,7 +244,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-hero-art img { height: 100%; width: auto; display: block; }
 .bd-hero-text { padding: 18px 12px 0; }
 .bd-hero h1 { font-size: 24px; margin: 0 0 6px; letter-spacing: -.03em; }
-.bd-hero p { font-size: 14.5px; color: var(--sub); line-height: 1.7; margin: 0 0 18px; }
+.bd-hero p { font-size: 14.5px; color: var(--sub); line-height: 1.7; margin: 0 0 18px; text-wrap: balance; }
 .bd-cta { display: inline-flex; align-items: center; gap: 6px; height: 46px; padding: 0 20px; border-radius: 14px; background: var(--bd-ac); color: #fff; font-size: 14.5px; font-weight: 700; transition: background .15s, transform .1s; }
 .bd-cta svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .bd-cta:hover { background: var(--bd-ac-d); color: #fff; text-decoration: none; }
