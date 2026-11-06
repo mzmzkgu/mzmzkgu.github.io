@@ -342,6 +342,23 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-wt { margin-top: 4px; font-size: 12.5px; font-weight: 700; color: var(--sub); }
 .bd-wt::before { content: "비중 "; font-weight: 500; color: var(--muted); }
 
+/* 목록 도구: 태그 필터, 페이지 나누기 */
+.bd-chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px; margin: 0 -2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.bd-chips::-webkit-scrollbar { display: none; }
+.bd-chips.open { flex-wrap: wrap; overflow: visible; }
+.bd-chip { flex: none; height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--paper); color: var(--sub); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 0 0 1px #e3e7eb; white-space: nowrap; -webkit-tap-highlight-color: transparent; transition: background .15s, color .15s; }
+.bd-chip.on { background: var(--bd-ac); color: #fff; box-shadow: none; }
+.bd-chip.bd-more { background: transparent; box-shadow: none; color: var(--muted); padding: 0 6px; }
+.bd-status { font-size: 13px; font-weight: 700; color: var(--bd-ac-d); margin: 2px 4px 8px; }
+.bd-status[hidden] { display: none; }
+.bd-list li[hidden] { display: none; }
+.bd-pager { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 16px 0 4px; }
+.bd-pager[hidden] { display: none; }
+.bd-pg { min-width: 40px; height: 40px; padding: 0 8px; border: 0; border-radius: 12px; background: var(--paper); color: var(--sub); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 0 0 1px #e3e7eb; -webkit-tap-highlight-color: transparent; }
+.bd-pg.on { background: var(--bd-ac); color: #fff; box-shadow: none; }
+.bd-pg.nav { font-size: 18px; }
+.bd-pg:disabled { opacity: .35; cursor: default; }
+
 /* ===== 푸터 ===== */
 .site-footer { padding: 8px 0 44px; color: var(--muted); font-size: 12px; line-height: 1.9; text-align: center; }
 .site-footer .links { display: flex; justify-content: center; align-items: center; margin-bottom: 6px; font-size: 12.5px; }
