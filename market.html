@@ -5,13 +5,23 @@ permalink: /market/
 bare: true
 description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트코인, 김프의 매수·관망·매도 신호를 카드로 한눈에 보는 마켓시그널 페이지입니다.
 ---
-<div class="mk-hd">
-  <h1>마켓시그널</h1>
-  <div class="mk-meta">
-    <span class="mk-sum" id="mkSummary"></span>
-    <span class="mk-upd"><span id="mkUpdated">불러오는 중…</span><button class="mk-refresh" id="mkRefresh" type="button" aria-label="새로고침"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5"/></svg></button></span>
+<div class="bd-page bd-market">
+<section class="bd-hero bd-mkt">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/market-signal.svg' | relative_url }}" alt="마켓시그널을 상징하는 게이지와 신호 카드 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <div class="bd-hero-head mk-head">
+      <span class="bd-hero-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4-5"/></svg></span>
+      <h1>마켓시그널</h1>
+      <div class="mk-side">
+        <span class="mk-sum" id="mkSummary"></span>
+        <span class="mk-upd"><span id="mkUpdated">불러오는 중…</span><button class="mk-refresh" id="mkRefresh" type="button" aria-label="새로고침"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4.5h-4.5"/></svg></button></span>
+      </div>
+    </div>
+    <p>공포탐욕·VIX·자산별 매수/매도 신호를 확인합니다.</p>
   </div>
-</div>
+</section>
+
+<p class="mk-tip"><a class="bd-cta" href="{{ site.baseurl }}{% post_url 2026-11-09-study-asset-buy-timing %}">[팁] 자산별 매수하기 좋은 시기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
 
 <div id="mkErr"></div>
 <div id="mkTop"></div>
@@ -19,7 +29,7 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
 
 <p class="mk-foot"><span>※ 참고용 신호이며 투자 권유가 아닙니다.</span><span>※ 데이터 지연으로 실제값과 차이가 있을 수 있습니다.</span></p>
 
-<p class="mk-tip"><a class="bd-cta" href="{{ site.baseurl }}{% post_url 2026-11-09-study-asset-buy-timing %}">[팁] 자산별 매수하기 좋은 시기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+</div>
 
 <dialog id="mkDlg" class="mk-dlg" aria-label="상세 정보"><div class="mk-sheet" id="mkSheet"></div></dialog>
 
