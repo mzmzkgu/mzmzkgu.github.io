@@ -184,9 +184,7 @@ description: 공포탐욕지수, VIX, 나스닥, 미국채, 달러, 금, 비트�
   function updated(iso) {
     var m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso);
     if (!m) return '';
-    var h = parseInt(m[4], 10), ap = h < 12 ? '오전' : '오후';
-    h = h % 12 || 12;
-    return m[2] + '.' + m[3] + ' ' + ap + ' ' + h + ':' + m[5] + ' 갱신';
+    return m[2] + '.' + m[3] + ' ' + m[4] + ':' + m[5] + ' 갱신';
   }
 
   function render(data) {
