@@ -63,4 +63,13 @@ description: 소액 재테크를 관리하기 위한 공모주 수익관리, 무
   </article>
 </div>
 
+{% assign recent = site.posts | slice: 0, 5 %}
+<section class="bd-page hm-recent">
+  <div class="hm-recent-head">
+    <h2>최근 글</h2>
+    <a href="{{ '/posts/' | relative_url }}">전체 글 보기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
+  </div>
+  {% include bd-board-list.html list=recent plain=true %}
+</section>
+
 <p class="hm-note"><span>이 웹사이트에는 로그인이 <b class="red">필요없습니다.</b></span><span>(입력 데이터는 사용자의 <b class="red">스마트폰, PC에서만</b> 저장·처리됩니다)</span></p>
