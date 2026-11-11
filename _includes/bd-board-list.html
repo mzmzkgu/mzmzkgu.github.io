@@ -1,8 +1,9 @@
 {% comment %}
   게시판 글 목록 (카드형). 사용: {% include bd-board-list.html list=site.categories.ipo %}
+  plain=true 이면 페이지 나누기 없이 그대로 보여 준다(홈의 최근 글).
   filter=true 이면 태그 필터 칩도 붙고, 10개씩 페이지로 나뉜다(_includes/bd-list-tools-js.html).
 {% endcomment %}
-<ul class="bd-list" data-paged data-per="10"{% if include.filter %} data-filter{% endif %}>
+<ul class="bd-list"{% unless include.plain %} data-paged data-per="10"{% endunless %}{% if include.filter %} data-filter{% endif %}>
   {% for post in include.list %}
   {% assign head = post.title | split: '] ' | first %}
   <li data-tags="{{ post.tags | join: '|' | escape }}">

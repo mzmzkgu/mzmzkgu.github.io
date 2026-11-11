@@ -101,6 +101,7 @@ GitHub Pages(Jekyll)로 운영하는 투자 기록 사이트다. 게시판은 `i
 - 소개와 문의는 `contact.md`(`/contact/`) 한 페이지로 합쳤다. `about.html`은 옛 `/about/` 주소를 `/contact/`로 보내는 이동용 파일이니 지우지 않는다.
 - 공모주(`ipo.html`)·무한매수(`infinity.html`)·공포매매(`fearbuy.html`)·공부요약(`study.html`, 탭 없이 안내 카드 + 글 목록만, 주황. 목록은 태그 필터와 10개씩 페이지 나누기가 있고 `_includes/bd-list-tools-js.html`, 자바스크립트가 꺼져 있으면 전부 보여 준다. 모든 글에 붙은 태그는 필터 칩에서 뺀다) 소개 화면은 같은 카드 스타일(`bd-*` 클래스, `assets/style.css`)이다. 맨 위 안내 카드(PC는 그림, 폰은 아이콘), 그 아래 탭(`도구 소개 | 관련 글`, 공포매매는 `도구 소개 | 매매 규칙 | 사용법`), 탭 동작은 `_includes/bd-tabs-js.html`(주소 뒤 `#info` 등으로 탭을 바로 열 수 있다)이다. 색은 `.bd-page` 변수(공모주 파랑, 무한매수 인디고, 공포매매 빨강)로 바꾼다. 도구 설명이나 화면이 바뀌면 이 화면의 도구 특징·도구 화면도 같이 고친다.
 - **모든 글 목록(공모주·무한매수·공부요약·전체 글)은 10개씩 페이지로 나뉜다.** 목록 모양은 `_includes/bd-board-list.html`, 페이지·필터 동작은 `_includes/bd-list-tools-js.html`이다. 새 게시판 목록도 `{% include bd-board-list.html list=site.categories.키 %}`로 만들고 페이지 맨 아래에 `{% include bd-list-tools-js.html %}`를 넣는다. (태그 필터는 `filter=true`를 준 공부요약만 쓴다.)
+- 홈(`index.html`) 카드 아래에는 `최근 글` 5개(`site.posts` 최신순, `bd-board-list.html plain=true`)가 있다. 구글이 홈에서 글로 바로 찾아가고 방문자도 새 글을 바로 보게 하려는 것이니 지우지 않는다.
 - 홈(`index.html`)에는 공모주·무한매수·마켓시그널·공부요약 카드 4장이 메뉴 순서대로 2×2(폰에서는 세로)로 있고, 카드 그림은 `assets/images/home/*.svg`(직접 그린 SVG)다. 메뉴나 도구를 바꾸면 카드도 같이 고친다.
 - 새 게시판을 만들 때는 `_data/sections.yml`에 한 줄과 목록 페이지 하나를 추가하고, 360px 폰에서 상단 메뉴가 한 줄에 들어가는지 확인한다.
 - 사이트 하단(`_layouts/default.html`의 `<footer>`)은 가운데 정렬이고 `전체 글 | 문의 | 개인정보 처리방침 | RSS` / `© 연도 사이트이름` / `이 사이트의 내용은 정보 제공 목적이며 투자 권유가 아닙니다.` 세 줄이다. 각 줄은 폰(320~390px)에서 한 줄에 들어가야 한다.

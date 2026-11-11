@@ -114,6 +114,16 @@ p { margin: 0 0 14px; }
   .hm-grid { grid-template-columns: 1fr; gap: 12px; }
 }
 
+/* 홈: 최근 글 */
+.hm-recent { margin: 22px 0 8px; }
+.hm-recent-head { display: flex; align-items: baseline; justify-content: space-between; margin: 0 4px 10px; }
+.hm-recent-head h2 { font-size: 20px; margin: 0; letter-spacing: -.03em; }
+.hm-recent-head a { font-size: 13px; font-weight: 700; color: var(--sub); display: inline-flex; align-items: center; gap: 2px; }
+.hm-recent-head a svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.hm-recent-head a:hover { color: var(--accent-ink); text-decoration: none; }
+.hm-recent .bd-m i { display: none; }
+.hm-recent + .hm-note { margin-top: 18px; }
+
 /* ===== 글 목록 ===== */
 .paper > h1 { margin-bottom: 8px; }
 .post-list { list-style: none; padding: 0; margin: 20px 0 0; }
