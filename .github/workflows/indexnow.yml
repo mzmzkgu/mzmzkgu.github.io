@@ -1,0 +1,30 @@
+name: IndexNow (새 글을 검색엔진에 알리기)
+
+# 사이트 배포(pages build and deployment)가 성공으로 끝난 뒤에 실행한다.
+# 배포 전에 보내면 검색엔진이 아직 없는 페이지와 키 파일을 가져가 실패하기 때문이다.
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "사이트의 모든 주소를 보낸다 (처음 한 번이나 문제가 있을 때)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          fetch-depth: 2
+      - name: IndexNow 로 주소 보내기
+        run: python3 .github/scripts/indexnow.py ${{ (github.event_name == 'workflow_dispatch' && inputs.all) && '--all' || '' }}

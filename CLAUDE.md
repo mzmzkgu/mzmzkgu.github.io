@@ -103,6 +103,7 @@ GitHub Pages(Jekyll)로 운영하는 투자 기록 사이트다. 게시판은 `i
 - **모든 글 목록(공모주·무한매수·공부요약·전체 글)은 10개씩 페이지로 나뉜다.** 목록 모양은 `_includes/bd-board-list.html`, 페이지·필터 동작은 `_includes/bd-list-tools-js.html`이다. 새 게시판 목록도 `{% include bd-board-list.html list=site.categories.키 %}`로 만들고 페이지 맨 아래에 `{% include bd-list-tools-js.html %}`를 넣는다. (태그 필터는 `filter=true`를 준 공부요약만 쓴다.)
 - 홈(`index.html`) 카드 아래에는 `최근 글` 5개(`site.posts` 최신순, `bd-board-list.html plain=true`)가 있다. 구글이 홈에서 글로 바로 찾아가고 방문자도 새 글을 바로 보게 하려는 것이니 지우지 않는다.
 - 홈(`index.html`)에는 공모주·무한매수·마켓시그널·공부요약 카드 4장이 메뉴 순서대로 2×2(폰에서는 세로)로 있고, 카드 그림은 `assets/images/home/*.svg`(직접 그린 SVG)다. 메뉴나 도구를 바꾸면 카드도 같이 고친다.
+- **IndexNow 자동 알림**(`.github/workflows/indexnow.yml`, `.github/scripts/indexnow.py`): 사이트 배포(`pages build and deployment`)가 성공한 뒤, 그 커밋에서 새로 생기거나 고쳐진 글(`_posts/*.md`)의 주소와 홈·`/posts/`·해당 게시판 주소를 `api.indexnow.org`로 보내 Bing·네이버 등에 알린다. 글이 없는 커밋(디자인 수정 등)에서는 아무것도 보내지 않는다. 저장소 루트의 `<키>.txt`(키 파일)는 이 사이트의 주인임을 증명하는 공개 파일이라 **지우거나 이름을 바꾸지 않는다.** 스크립트의 `KEY`와 파일 이름이 같아야 한다. 전체 주소를 한 번에 보내려면 GitHub Actions 탭에서 이 워크플로를 `all` 로 직접 실행한다. 글 주소 규칙(`/posts/:year/:month/:day/:title/`)이나 게시판 주소를 바꾸면 스크립트의 `post_url`, `FIXED_PAGES`도 같이 고친다. 구글은 IndexNow 를 쓰지 않는다.
 - 새 게시판을 만들 때는 `_data/sections.yml`에 한 줄과 목록 페이지 하나를 추가하고, 360px 폰에서 상단 메뉴가 한 줄에 들어가는지 확인한다.
 - 사이트 하단(`_layouts/default.html`의 `<footer>`)은 가운데 정렬이고 `전체 글 | 문의 | 개인정보 처리방침 | RSS` / `© 연도 사이트이름` / `이 사이트의 내용은 정보 제공 목적이며 투자 권유가 아닙니다.` 세 줄이다. 각 줄은 폰(320~390px)에서 한 줄에 들어가야 한다.
 - 스타일은 `assets/style.css` 하나다. **CSS 주석(`/* */`)을 열면 반드시 닫는다.** (닫지 않으면 아래 스타일이 통째로 무시된다.)
