@@ -247,6 +247,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-page { --bd-ac: #3182f6; --bd-ac-d: #1b64da; --bd-tint: #e8f3ff; }
 .bd-page.bd-infinity { --bd-ac: #4f5bd5; --bd-ac-d: #3a45b8; --bd-tint: #eef0ff; }
 .bd-page.bd-study { --bd-ac: #e07b00; --bd-ac-d: #b86100; --bd-tint: #fff1dc; }
+.bd-page.bd-experiment { --bd-ac: #7c4dff; --bd-ac-d: #5b34d6; --bd-tint: #f1ecff; }
 .bd-page.bd-fearbuy { --bd-ac: #e5484d; --bd-ac-d: #c62d33; --bd-tint: #fff0f0; }
 .bd-page.bd-market { --bd-ac: #12a374; --bd-ac-d: #0d7f5a; --bd-tint: #e3f7ee; }
 .bd-hero {

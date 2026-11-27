@@ -11,3 +11,6 @@
 - key: study
   title: 공부요약
   url: /study/
+- key: experiment
+  title: 실험
+  url: /experiment/

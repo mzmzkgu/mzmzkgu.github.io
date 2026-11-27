@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="실험을 상징하는 플라스크와 거품 그림">
+  <circle cx="52" cy="46" r="24" fill="#e0d5ff"/>
+  <circle cx="276" cy="140" r="32" fill="#e0d5ff"/>
+  <!-- 플라스크 -->
+  <path d="M138 28h44v40l38 70a14 14 0 0 1-12.4 20.5H112.4A14 14 0 0 1 100 138l38-70z" fill="#fff" stroke="#c9b8ff" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="130" y="20" width="60" height="12" rx="6" fill="#7c4dff"/>
+  <!-- 액체 -->
+  <path d="M120 112h80l20 26a14 14 0 0 1-12.4 20.5H112.4A14 14 0 0 1 100 138z" fill="#a98bff"/>
+  <path d="M120 112c14-8 26 8 40 0s26-8 40 0" fill="none" stroke="#c9b8ff" stroke-width="3" stroke-linecap="round"/>
+  <!-- 거품 -->
+  <circle cx="148" cy="94" r="7" fill="#c9b8ff"/><circle cx="170" cy="78" r="5" fill="#a98bff"/><circle cx="160" cy="56" r="4" fill="#c9b8ff"/>
+  <circle cx="190" cy="126" r="5" fill="#fff" opacity=".85"/><circle cx="140" cy="132" r="4" fill="#fff" opacity=".85"/>
+  <!-- 반짝 -->
+  <path d="M244 52l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#fff"/>
+  <path d="M76 120l2 4.6 4.6 2-4.6 2-2 4.6-2-4.6-4.6-2 4.6-2z" fill="#fff"/>
+</svg>
