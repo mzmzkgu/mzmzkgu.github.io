@@ -1,0 +1,26 @@
+---
+layout: default
+title: 실험
+permalink: /experiment/
+bare: true
+board: experiment
+description: 이것저것 직접 해 보고 그 결과를 기록하는 실험 공간입니다.
+---
+<div class="bd-page bd-experiment">
+<section class="bd-hero">
+  <div class="bd-hero-art"><img src="{{ '/assets/images/home/experiment-flask.svg' | relative_url }}" alt="실험을 상징하는 플라스크 그림" width="320" height="180"></div>
+  <div class="bd-hero-text">
+    <div class="bd-hero-head">
+      <span class="bd-hero-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></span>
+      <h1>실험</h1>
+    </div>
+    <p>이것저것 직접 해 보고<br>그 결과를 기록합니다.</p>
+  </div>
+</section>
+
+<section class="bd-sec">
+  <h2 class="bd-h bd-h-lg">실험 글 <span class="bd-count">{{ site.categories.experiment.size | default: 0 }}</span></h2>
+  {% include bd-board-list.html list=site.categories.experiment %}
+</section>
+{% include bd-list-tools-js.html %}
+</div>

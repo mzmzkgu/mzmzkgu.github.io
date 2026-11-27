@@ -247,6 +247,7 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
 .bd-page { --bd-ac: #3182f6; --bd-ac-d: #1b64da; --bd-tint: #e8f3ff; }
 .bd-page.bd-infinity { --bd-ac: #4f5bd5; --bd-ac-d: #3a45b8; --bd-tint: #eef0ff; }
 .bd-page.bd-study { --bd-ac: #e07b00; --bd-ac-d: #b86100; --bd-tint: #fff1dc; }
+.bd-page.bd-experiment { --bd-ac: #7c4dff; --bd-ac-d: #5b34d6; --bd-tint: #f1ecff; }
 .bd-page.bd-fearbuy { --bd-ac: #e5484d; --bd-ac-d: #c62d33; --bd-tint: #fff0f0; }
 .bd-page.bd-market { --bd-ac: #12a374; --bd-ac-d: #0d7f5a; --bd-tint: #e3f7ee; }
 .bd-hero {
@@ -389,13 +390,10 @@ article h1 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
     #0a1633; }
   .wrap { padding: 0 12px; }
   .paper { padding: 22px 18px 24px; }
-  .nav { gap: 0 11px; font-size: 14px; }
+  /* 메뉴가 7개라서 화면 폭에 맞춰 글자와 간격이 함께 줄어든다 (320~560px 에서 한 줄) */
+  .nav { gap: 0 min(11px, 1.9vw); font-size: min(14px, 3.5vw); }
   h1 { font-size: 21px; }
   article h1 { font-size: 20px; }
-}
-
-@media (max-width: 380px) {
-  .nav { gap: 0 9px; font-size: 13.5px; }
 }
 
 /* ===== 공부요약 출처 구분 탭 ===== */

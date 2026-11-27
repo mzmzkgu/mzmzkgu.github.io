@@ -24,8 +24,8 @@ BASE = "https://" + HOST
 KEY = "c79de37461ced32f097fd26092b83d52"
 KEY_LOCATION = f"{BASE}/{KEY}.txt"
 ENDPOINT = "https://api.indexnow.org/indexnow"
-BOARDS = ["/ipo/", "/infinity/", "/study/"]            # 글 분야 → 목록 주소 (categories 값과 같다)
-FIXED_PAGES = ["/", "/posts/", "/ipo/", "/infinity/", "/study/", "/fearbuy/", "/market/", "/contact/", "/privacy/"]
+BOARDS = ["/ipo/", "/infinity/", "/study/", "/experiment/"]            # 글 분야 → 목록 주소 (categories 값과 같다)
+FIXED_PAGES = ["/", "/posts/", "/ipo/", "/infinity/", "/study/", "/experiment/", "/fearbuy/", "/market/", "/contact/", "/privacy/"]
 
 
 def post_url(filename):
